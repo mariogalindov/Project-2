@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="Availabilityport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Medik</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Medicus</title>
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+    <!-- CSS Custom styles -->
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">Medik</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#find">Find a Medic</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#register">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#myaccount">My Account</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- REGISTRATION FORM -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <br><br>
+                <div class="card">
+                    <header class="card-header">
+                        <a href="" class="float-right btn btn-outline-primary mt-1">Log in</a>
+                        <h4 class="card-title mt-2" id="txt-clr">Sign up</h4>
+                    </header>
+                    <article class="card-body">
+                        <form>
+                            <div class="form-row">
+                                <div class="col form-group">
+                                    <label>First name </label>
+                                    <input type="text" class="form-control" placeholder="">
+                                </div> <!-- form-group end.// -->
+                                <div class="col form-group">
+                                    <label>Last name</label>
+                                    <input type="text" class="form-control" placeholder=" ">
+                                </div> <!-- form-group end.// -->
+                            </div> <!-- form-row end.// -->
+                            <div class="form-group">
+                                <label>Email address</label>
+                                <input type="email" class="form-control" placeholder="">
+                                <small class="form-text text-muted">We'll never share your email with anyone
+                                    else.</small>
+                            </div> <!-- form-group end.// -->
+                            <div class="form-group">
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" value="option1">
+                                    <span class="form-check-label"> Male </span>
+                                </label>
+                                <label class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" value="option2">
+                                    <span class="form-check-label"> Female</span>
+                                </label>
+                            </div> <!-- form-group end.// -->
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>City</label>
+                                    <input type="text" class="form-control">
+                                </div> <!-- form-group end.// -->
+                                <div class="form-group col-md-6">
+                                    <label>Country</label>
+                                    <select id="inputState" class="form-control">
+                                        <!-- <option> Choose...</option>
+                                    <option>Mexico</option> -->
+                                        <!-- <option>Canada</option> -->
+                                        <option selected="">United States</option>
+                                        <!-- <option>Spain</option>
+                                    <option>France</option> -->
+                                    </select>
+                                </div> <!-- form-group end.// -->
+                            </div> <!-- form-row.// -->
+                            <div class="form-group">
+                                <label>Create password</label>
+                                <input class="form-control" type="password">
+                            </div> <!-- form-group end.// -->
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-block"> Register </button>
+                            </div> <!-- form-group// -->
+                            <small class="text-muted">By clicking the 'Sign Up' button, you confirm that you accept our
+                                <br>
+                                Terms of use and Privacy Policy.</small>
+                        </form>
+                    </article> <!-- card-body end .// -->
+                    <div class="border-top card-body text-center">Have an account? <a href="">Log In</a></div>
+                </div> <!-- card.// -->
+            </div> <!-- col.//-->
+
+        </div> <!-- row.//-->
+
+
+    </div>
+    <!--container end.//-->
+
+    <!-- MEDIK FOOTER -->
+    <br><br>
+    <footer class="text-muted">
+        <div class="container">
+            <p class="float-right">
+                <a href="#">Back to top</a>
+            </p>
+            <p>&copy; MEDIK 1717 Harrison St, San Francisco, CA 94103, USA Team 3!</p>
+            <p>Need help? <a href="https://github.com/mariogalindov/Project-2.git">Visit our Git Hub repo</a> or read
+                our <a href="#">readme.md file</a>.</p>
+        </div>
+    </footer>
+    </article>
