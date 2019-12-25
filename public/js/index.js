@@ -1,99 +1,36 @@
-// Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
-var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
 
-// The API object contains methods for each kind of request we'll make
-var API = {
-  saveExample: function(example) {
-    return $.ajax({
-      headers: {
-        "Content-Type": "application/json"
-      },
-      type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
-    });
-  },
-  getExamples: function() {
-    return $.ajax({
-      url: "api/examples",
-      type: "GET"
-    });
-  },
-  deleteExample: function(id) {
-    return $.ajax({
-      url: "api/examples/" + id,
-      type: "DELETE"
-    });
-  }
-};
+document.addEventListener("DOMContentLoaded", function() {
+    var specialtiesDropdown = $("#specialtiesDropdown");
+    var doctorResults;
 
-// refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
-      var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+    // Funcion para agregar todas las especialidades al dropdown para que el usuario pueda buscar por especialidades
+    var AddDropdownOptions = function(dropdown,specialties){
+      dropdown.empty();
+      var specialtiesToAdd = [];
+      for(var i=0;i<specialties.length;i++){
+        var newOption = $("<option>");
+        newOption.attr("value",specialties[i].id);
+        newOption.text(specialties[i].specialization_name);
+        specialtiesToAdd.push(newOption);
+      }
+      dropdown.append(specialtiesToAdd);
+    }
 
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": example.id
-        })
-        .append($a);
+    // Funcion para hacer el query a la BD de la especialidades y alimentarlas a la funcion AddDropdownOptions
+    var getSpecialties = function(){
+      $.get("/api/specializations",function(data){
+        specialtiesInfo = data;
+        AddDropdownOptions(specialtiesDropdown,specialtiesInfo);
+      })
+    };
 
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
+    // Corremos la funcion getSpecialties que a su vez corre la funcion AddDropdownOptions que es la que agrega las especialidades al dropdown
+    getSpecialties();
 
-      $li.append($button);
-
-      return $li;
-    });
-
-    $exampleList.empty();
-    $exampleList.append($examples);
-  });
-};
-
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
-  event.preventDefault();
-
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
-  };
-
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
-    return;
-  }
-
-  API.saveExample(example).then(function() {
-    refreshExamples();
-  });
-
-  $exampleText.val("");
-  $exampleDescription.val("");
-};
-
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
-
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
-  });
-};
-
-// Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+    $("#searchButton").on("click",function(){
+      event.preventDefault();
+      var choosenSpecialtyId = $("#specialtiesDropdown").find(":selected").attr("value");
+      console.log(choosenSpecialtyId)
+      location.href="/specializations/" + choosenSpecialtyId + "/doctors";
+      })
+});

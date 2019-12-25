@@ -38,4 +38,16 @@ module.exports = function(app) {
       })
     });
 
+    //Doctors per specialization and handlebars render
+    app.get("/specializations/:specialization_id/doctors", function(req, res) {
+      db.sequelize.query(`SELECT s.id as specialization_id, s.specialization_name, d.id as doctor_id
+      , concat(d.first_name, ' ', d.last_name) as doctor_name FROM specialization s, doctor d
+      , doctor_specialization ds WHERE d.id = ds.doctor_id AND s.id = ds.specialization_id
+      AND s.id = ${req.params.specialization_id};`)
+      .then(([results, metadata]) => {
+        // Results will be an empty array and metadata will contain the number of affected rows.
+        res.render("search",{doctors: results});
+      })
+    });    
+
 };
