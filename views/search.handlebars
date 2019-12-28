@@ -1,7 +1,17 @@
 <div class="doctorList">
         <div class="row mt-3">
-            {{#each doctors}}
-            <div class="col mb-4 sm-3">
+            {{!-- {{#each this.doctors.[doctor.id]}} --}}
+                {{!-- {{#each this.specialization}} --}}
+            {{!-- {{#each this.jsonresp}} --}}
+                {{!-- {{#each this.jsonresp}} --}}
+            <p>
+                {{stringit this.jsonresp.["id"]}}
+            </p>
+                {{!-- {{/each}} --}}
+            {{!-- {{/each}} --}}
+                {{!-- {{/each}} --}}
+            {{!-- {{/each}} --}}
+            {{!-- <div class="col mb-4 sm-3">
                 <div class="row">
                     <div class="card mb-4" style="max-width: 540px;">
                         <div class="row no-gutters">
@@ -15,20 +25,26 @@
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <div class="row">
-                                    <h5 class="card-title">{{this.doctor_name}}</h5>
+                                    <h5 class="card-title">{{this.doctor.name}}</h5>
                                     </div>
                                     <div class="row">
-                                    <p class="card-text">Specialty: {{this.specialization_name}}</p>
+                                    <p class="card-text">Specialty: {{this.name}}</p>
                                     </div>
-                                    <div class="row">
-                                        Jero
+                                    {{#each office}}
+                                    <div class="row" id="officeRow" data-officeID={{this.id}}>
+                                        {{#each availability}}
+                                            <div class="col" data-availableTimeSlot={{this.timeslot}}>
+                                                <button type="button" class="btn btn-primary">{{this.timeslot}}</button>
+                                            </div>
+                                        {{/each}}
                                     </div>
+                                    {{/each}}
                                 </div>
                             </div>
                         </div>
                     </div>                
                 </div>
-            </div>
-            {{/each}}
+            </div> --}}
+            {{!-- {{/each}} --}}
         </div>
 </div>
