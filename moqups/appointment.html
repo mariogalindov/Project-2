@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="Availabilityport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Medik</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <title>Medicus</title>
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+  <!-- CSS Custom styles -->
+  <link href="style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar navbar-expand-lg navbar-dark  fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Medik</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#find">Find a Medic</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" data-toggle="modal" data-target="#exampleModal"
+              href="#register">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#myaccount">My Account</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Appointment section -->
+
+  <div class="container">
+    <br><br><br>
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="card">
+          <div class="card-header">
+            We need a few details before your appointment can be scheduled!
+          </div>
+          <!-- Patient form -->
+          <div class="card-body">
+            <h5 class="card-title">Patient Information</h5>
+            <hr>
+            <form>
+              <div class="form-row">
+                <div class="col-md-4 mb-3">
+                  <label for="validationDefault01">First name*</label>
+                  <input type="text" class="form-control" id="validationDefault01" placeholder="Mark" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="validationDefault02">Last name*</label>
+                  <input type="text" class="form-control" id="validationDefault02" placeholder="Otto" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <div class="well">
+                    <div class="form-group">
+                      <label>Date of birth*</label>
+                      <input type="date" class="form-control" id="exampleInputDOB1" placeholder="Date of Birth">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-4 mb-3">
+                  <div class="well">
+                    <div class="form-group">
+                      <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Gender*</label>
+                      <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" required>
+                        <option selected>Choose...</option>
+                        <option value="1">Male</option>
+                        <option value="2">Female</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-8 mb-3">
+                  <label class="my-1 mr-2" for="validationDefault04">Reason for the visit</label>
+                  <input type="text" class="form-control my-1 mr-sm-2" id="validationDefault01" placeholder="Optional">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <div class="form-group">
+                    <div class="well">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Email address*</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                          required>
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                          else.</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <div class="form-group">
+                    <label for="formGroupExampleInput">Phone number</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput"
+                      placeholder="Enter 10 digit number">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col">
+                    <div class="form-check">
+                      <input class="form-check-input my-1 mr-sm-2" type="checkbox" value="" id="invalidCheck2"
+                        required></input>
+                      <label class="form-check-label" for="invalidCheck2">
+                        * Agree to Medik terms and conditions.
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <div class="form-row">
+                  <div class="col">
+                    <button class="btn btn-primary " type="submit">Continue</button>
+                  </div>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <br>
+    </div>
+
+
+    <!-- Appointment details -->
+    <div class="col-lg-4">
+      <div class="card" style="width: 18rem;" id="appointment-details">
+        <div class="card-body">
+          <h5 class="card-title">Appointment details</h5>
+          <h3 class="card-text">Monday, december 30th at 1:00 p.m.</h3>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" id="appointment-details">Dr. Name</li>
+          <li class="list-group-item" id="appointment-details">Dr. Specialty</li>
+          <li class="list-group-item" id="appointment-details">Dr. Address</li>
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Change date and time</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  <!-- MEDIK FOOTER -->
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Back to top</a>
+      </p>
+      <p>&copy; MEDIK 1717 Harrison St, San Francisco, CA 94103, USA Team 3!</p>
+      <p>Need help? <a href="https://github.com/mariogalindov/Project-2.git">Visit our Git Hub repo</a> or read our <a
+          href="#">readme.md file</a>.</p>
+    </div>
+  </footer>
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
+
+
+<!-- <div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div> -->
+
+
+
