@@ -31,6 +31,6 @@ document.addEventListener("DOMContentLoaded", function() {
       event.preventDefault();
       var choosenSpecialtyId = $("#specialtiesDropdown").find(":selected").attr("value");
       console.log(choosenSpecialtyId)
-      location.href="/specializations/" + choosenSpecialtyId + "/doctors";
+      location.href="/specializations/" + choosenSpecialtyId + "/doctors/offices/availability";
       })
 });
