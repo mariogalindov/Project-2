@@ -281,7 +281,7 @@ module.exports = function (app) {
           jsonit: function(expression){
             return JSON.parse(expression);
           },
-          date: function(expression){
+          datifier: function(expression){
             return moment(expression).format("DD/MM/YY")
           },
           dateTime: function(expression){
@@ -301,6 +301,13 @@ module.exports = function (app) {
           },
           htDatesCarousel: function(officeId){
             return "#datesCarouselOf" + officeId
+          },
+          lengthOfAvailability: function(v1,v2,options){
+            'use strict';
+            if(v1.length>v2){
+              return options.fn(this);
+            }
+            return options.inverse(this);
           }
         }
       });

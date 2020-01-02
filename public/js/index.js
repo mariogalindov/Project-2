@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var getSpecialties = function(){
       $.get("/api/specializations",function(data){
         specialtiesInfo = data;
+        console.log(specialtiesInfo)
         AddDropdownOptions(specialtiesDropdown,specialtiesInfo);
       })
     };

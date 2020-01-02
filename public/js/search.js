@@ -8,15 +8,21 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     $("#officePickerButton").on("click",function(){
-      var officeId = $("#officesDropdown").val()
-      console.log("Selected office Id = " + officeId)
+      var officeId = $("#officesDropdown").val();
+      var doctorId = $("#officesDropdown").attr("data-doctor");
+      console.log("Selected doctor id = " + doctorId);
+      console.log("Selected office Id = " + officeId);
       $(".officeRow").each(function(i, obj){
-          if(!$(this).hasClass("d-none") && $(this).attr("id") != officeId){
+          if(!$(this).hasClass("d-none") && $(this).attr("id") != officeId && $(this).attr("data-doctor") === doctorId){
               $(this).addClass("d-none")
           }
-          else if($(this).hasClass("d-none") && $(this).attr("id") === officeId){
+          else if($(this).hasClass("d-none") && $(this).attr("id") === officeId && $(this).attr("data-doctor") === doctorId){
             $(this).removeClass("d-none")
           }
       })
+      })
+
+      $("#goBackToIndex").on("click",function(){
+          location.href = "/"
       })
 });
