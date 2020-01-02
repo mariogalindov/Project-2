@@ -8,9 +8,13 @@
   <title>Medik</title>
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="/styles/style.css">
-  <title>Medicus</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="./styles/style.css">
+  <title>{{ title }}</title>
+
+  {{!-- Font Awesome CDN --}}
+  <script src="https://kit.fontawesome.com/feda278045.js" crossorigin="anonymous"></script>
 
   <style>
     .bd-placeholder-img {
@@ -31,11 +35,13 @@
 
 </head>
 
+{{!-- Nav bar --}}
+
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark  fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Medik</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+      <a class="navbar-brand js-scroll-trigger" href="/">Medik</a>
+      <button class="navbar-toggler" type="button" data-toggle="modal" data-target="#staticBackdrop"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -45,7 +51,8 @@
             <a class="nav-link js-scroll-trigger" href="/">Find a Medic</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#register">Register</a>
+            <a class="nav-link js-scroll-trigger" href="#register" data-toggle="modal"
+              data-target="#staticBackdrop">Register</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#myaccount">My Account</a>
@@ -54,30 +61,243 @@
       </div>
     </div>
   </nav>
+
+  {{!-- Main body served thru handlebars --}}
+
   <div class="container">
     {{{ body }}}
+
+    {{!-- Register in modal window --}}
+    <div class="modal fade" id="staticBackdrop" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title" id="staticBackdropLabel">Sign up!</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+            <form>
+              <div class="form-row">
+                <div class="col form-group">
+                  <label>First name </label>
+                  <input type="text" class="form-control" placeholder="" required>
+                </div> <!-- form-group end.// -->
+                <div class="col form-group">
+                  <label>Last name</label>
+                  <input type="text" class="form-control" placeholder=" " required>
+                </div> <!-- form-group end.// -->
+              </div> <!-- form-row end.// -->
+              <div class="form-group">
+                <label>Email address</label>
+                <input type="email" class="form-control" placeholder="" required>
+                <small class="form-text text-muted">We'll never share your email with anyone
+                  else.</small>
+              </div> <!-- form-group end.// -->
+              <div class="form-group">
+                <label class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="gender" value="option1">
+                  <span class="form-check-label"> Male </span>
+                </label>
+                <label class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="gender" value="option2">
+                  <span class="form-check-label"> Female</span>
+                </label>
+              </div> <!-- form-group end.// -->
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>City</label>
+                  <input type="text" class="form-control">
+                </div> <!-- form-group end.// -->
+                <div class="form-group col-md-6">
+                  <label>Country</label>
+                  <select id="inputState" class="form-control">
+                    <!-- <option> Choose...</option>
+                            <option>Mexico</option> -->
+                    <!-- <option>Canada</option> -->
+                    <option selected="">United States</option>
+                    <!-- <option>Spain</option>
+                            <option>France</option> -->
+                  </select>
+                </div> <!-- form-group end.// -->
+              </div> <!-- form-row.// -->
+              <div class="form-group">
+                <label>Create password</label>
+                <input class="form-control" type="password" required>
+              </div> <!-- form-group end.// -->
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block"> Register </button>
+              </div> <!-- form-group// -->
+              <small class="text-muted">By clicking the 'Register' button, you confirm that you accept our
+                <br>
+                Terms of use and Privacy Policy.</small>
+            </form>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- MEDIK FOOTER -->
-  <footer class="text-muted">
-    <div class="container">
-      <p class="float-right">
-        <a href="#">Back to top</a>
-      </p>
-      <p>&copy; MEDIK 1717 Harrison St, San Francisco, CA 94103, USA Team 3!</p>
-      <p>Need help? <a href="https://github.com/mariogalindov/Project-2.git">Visit our Git Hub repo</a> or read our <a
-          href="#">readme.md file</a>.</p>
+
+  <!-- Footer -->
+  <footer class="page-footer font-small stylish-color-dark pt-4 text-muted">
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left">
+      <!-- Grid row -->
+      <div class="row">
+        <!-- Grid column -->
+        <div class="col-md-4 mx-auto">
+          <!-- Content -->
+          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">About Medik</h5>
+          <p>Browse certified doctors by location, then make an appointment instantly.</p>
+          <p>MEDIK 1717 Harrison St, San Francisco, CA 94103, USA</p>
+        </div>
+        <!-- Grid column -->
+        <hr class="clearfix w-100 d-md-none">
+        <!-- Grid column -->
+        <div class="col-md-2 mx-auto">
+          <!-- Links -->
+          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">Link 1</a>
+            </li>
+            <li>
+              <a href="#!">Link 2</a>
+            </li>
+            <li>
+              <a href="#!">Link 3</a>
+            </li>
+            <li>
+              <a href="#!">Link 4</a>
+            </li>
+          </ul>
+        </div>
+        <!-- Grid column -->
+        <hr class="clearfix w-100 d-md-none">
+        <!-- Grid column -->
+        <div class="col-md-2 mx-auto">
+          <!-- Links -->
+          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">Link 1</a>
+            </li>
+            <li>
+              <a href="#!">Link 2</a>
+            </li>
+            <li>
+              <a href="#!">Link 3</a>
+            </li>
+            <li>
+              <a href="#!">Link 4</a>
+            </li>
+          </ul>
+        </div>
+        <!-- Grid column -->
+        <hr class="clearfix w-100 d-md-none">
+        <!-- Grid column -->
+        <div class="col-md-2 mx-auto">
+          <!-- Links -->
+          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">Link 1</a>
+            </li>
+            <li>
+              <a href="#!">Link 2</a>
+            </li>
+            <li>
+              <a href="#!">Link 3</a>
+            </li>
+            <li>
+              <a href="#!">Link 4</a>
+            </li>
+          </ul>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
     </div>
+    <!-- Footer Links -->
+    <hr>
+    <!-- Call to action -->
+    <ul class="list-unstyled list-inline text-center py-2">
+      <li class="list-inline-item">
+        <h5 class="mb-1">Register for free</h5>
+      </li>
+      <li class="list-inline-item">
+        <a href="#!" class="btn btn-primary btn-rounded" data-toggle="modal" data-target="#staticBackdrop">Sign up!</a>
+      </li>
+    </ul>
+    <!-- Call to action -->
+    <hr>
+    <!-- Social buttons -->
+    <ul class="list-unstyled list-inline text-center">
+      <li class="list-inline-item">
+        <a class="btn-floating btn-fb mx-1">
+          <i class="fab fa-facebook-f"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-tw mx-1">
+          <i class="fab fa-twitter"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-gplus mx-1">
+          <i class="fab fa-google-plus-g"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-li mx-1">
+          <i class="fab fa-linkedin-in"> </i>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn-floating btn-dribbble mx-1">
+          <i class="fab fa-dribbble"> </i>
+        </a>
+      </li>
+    </ul>
+    <!-- Social buttons -->
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+      <a href="https://github.com/mariogalindov/Project-2.git"> Medika (Team 3)</a>
+    </div>
+    <!-- Copyright -->
   </footer>
+  <!-- Footer -->
+
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<<<<<<< HEAD
   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
   </script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </script>
+=======
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+>>>>>>> memo
 </body>
 
 </html>

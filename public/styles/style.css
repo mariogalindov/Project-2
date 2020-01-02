@@ -32,15 +32,17 @@
     color: #1E3E72;
 }
 
-footer {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-}
-
 footer p {
     margin-bottom: .25rem;
 }
 
+.custom-select {
+    margin: 0px 3px;
+}
+
+#btn-main-search {
+    margin: 0px 0px 0px 3px;
+}
 
 /* TEST */
 
@@ -56,6 +58,29 @@ body {
     display: flex;
     justify-content: space-between;
 }
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: .5rem;
+}
+
+#txt-clr {
+    color: #1E3E72;
+}
+
+#homepage-search {
+    display: flex;
+    flex-flow: flow wrap;
+    padding: 2px 20px;
+    box-sizing: border-box;
+}
+
+.doctorList {
+    margin-top: 2.25rem;
+}
+
+/* @media */
 
 @media (min-width: 576px) and (max-width: 767.98px) {
     .slide-box img {
