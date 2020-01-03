@@ -84,6 +84,7 @@ module.exports = function (app) {
           var officeaddress = rowresult['doctor.office.address'];
           var idappoint = rowresult['doctor.office.availability.appointment_id'];
           var timeslot = rowresult['doctor.office.availability.timeslot'];
+          console.log(moment(timeslot).format("HH:mm"))
           if (idspeAnt != idspe) {
             jsonresp = jsonresp + idspeUnion + "{";
             idspeUnion = "]}]}]}]},";
@@ -149,7 +150,8 @@ module.exports = function (app) {
         }
         jsonresp += "]";
         console.log(jsonresp);
-        res.end(jsonresp);
+        // res.end(JSON.stringify(jsonresp));
+        res.end(JSON.stringify(results));
       })
   });
 

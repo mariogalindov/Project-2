@@ -49,7 +49,10 @@
                                                         <p>{{datifier date}}</p>
                                                     </span>
                                                     {{#each availability}}
+                                                    {{#if availability.id}}
+                                                    {{else}}
                                                         <button type="button" class="btn btn-primary mt-2" style="width: 4rem" id={{timeId this.timeslot}} data-doctor={{../../../id}} data-office={{../../id}}>{{time this.timeslot}}</button>
+                                                    {{/if}}
                                                     {{/each}}
                                                 </div>
                                             {{/each}}
