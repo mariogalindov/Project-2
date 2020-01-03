@@ -48,7 +48,7 @@ module.exports = function (app) {
       + " DAYOFWEEK(oda.start_time) as `doctor.office.availability.week_day_number`,"
       + " DAYNAME(oda.start_time) as `doctor.office.availability.week_day_name`,"
       + " DATE_FORMAT(oda.start_time, '%M %d %Y') as `doctor.office.availability.date`,"
-      + " DATE_ADD(oda.start_time, INTERVAL con.consec*o.time_slot_per_client_in_min MINUTE) as `doctor.office.availability.timeslot`"
+      + " TIME(DATE_ADD(oda.start_time, INTERVAL con.consec*o.time_slot_per_client_in_min MINUTE)) as `doctor.office.availability.timeslot`"
       + " FROM doctor_specialization ds inner join office o on (ds.doctor_id = o.doctor_id)"
       + " inner join specialization s on (ds.specialization_id = s.id)"
       + " inner join doctor d on (ds.doctor_id=d.id)"
