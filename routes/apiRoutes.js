@@ -150,8 +150,8 @@ module.exports = function (app) {
         }
         jsonresp += "]";
         console.log(jsonresp);
-        // res.end(JSON.stringify(jsonresp));
-        res.end(JSON.stringify(results));
+        res.end(jsonresp);
+        // res.end(JSON.stringify(results));
       })
   });
 
@@ -172,7 +172,7 @@ module.exports = function (app) {
       + " DAYOFWEEK(oda.start_time) as `doctor.office.availability.week_day_number`,"
       + " DAYNAME(oda.start_time) as `doctor.office.availability.week_day_name`,"
       + " DATE_FORMAT(oda.start_time, '%M %d %Y') as `doctor.office.availability.date`,"
-      + " DATE_ADD(oda.start_time, INTERVAL con.consec*o.time_slot_per_client_in_min MINUTE) as `doctor.office.availability.timeslot`"
+      + " TIME(DATE_ADD(oda.start_time, INTERVAL con.consec*o.time_slot_per_client_in_min MINUTE)) as `doctor.office.availability.timeslot`"
       + " FROM doctor_specialization ds inner join office o on (ds.doctor_id = o.doctor_id)"
       + " inner join specialization s on (ds.specialization_id = s.id)"
       + " inner join doctor d on (ds.doctor_id=d.id)"
@@ -287,16 +287,18 @@ module.exports = function (app) {
             return moment(expression).format("DD/MM/YY")
           },
           dateTime: function(expression){
-            return moment.utc(expression).format("DD/MM/YY HH:mm")
+            return moment(expression).format("DD/MM/YY HH:mm")
           },
           listGroupItem: function(element){
             return "list-group-item " + element
           },
           time: function(expression){
-            return moment.utc(expression).format("HH:mm")
+            return moment(expression, "HH:mm:ss").format("HH:mm")
           },
-          timeId: function(expression){
-            return moment.utc(expression).format("DDMMYYHHmm");
+          timeId: function(dateExp, timeExp){
+            var dateId = moment(dateExp).format("DDMMYYYY");
+            var timeId = moment(timeExp, "HH:mm:ss").format("HHmm");
+            return dateId + timeId;
           },
           datesCarousel: function(officeId){
             return "datesCarouselOf" + officeId
@@ -304,12 +306,15 @@ module.exports = function (app) {
           htDatesCarousel: function(officeId){
             return "#datesCarouselOf" + officeId
           },
-          lengthOfAvailability: function(v1,v2,options){
+          lengthOfArray: function(v1,v2,options){
             'use strict';
             if(v1.length>v2){
               return options.fn(this);
             }
             return options.inverse(this);
+          },
+          hasAppointment: function(arg1,arg2,options){
+            return (arg1 > arg2) ? options.fn(this) : options.inverse(this);
           }
         }
       });
