@@ -80,6 +80,14 @@ body {
     margin-top: 2.25rem;
 }
 
+#muted-txt {
+    color: gray;
+}
+
+i::after {
+    $breadcrumb-divider: none;
+}
+
 /* @media */
 
 @media (min-width: 576px) and (max-width: 767.98px) {

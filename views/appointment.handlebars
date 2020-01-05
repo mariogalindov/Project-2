@@ -13,23 +13,23 @@
                 <div class="card-body">
                     <h5 class="card-title">Patient Information</h5>
                     <hr>
-                    <form>
+                    <form action="/patient/submit_appointment_form" method="post">
                         <div class="form-row">
                             <div class="col-md-4 mb-3">
-                                <label for="validationDefault01">First name*</label>
-                                <input type="text" class="form-control" id="validationDefault01" placeholder="Mark"
+                                <label for="patient_name">First name*</label>
+                                <input type="text" class="form-control" id="patient_name" name="name_field" placeholder={{patientName}}
                                     required>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label for="validationDefault02">Last name*</label>
-                                <input type="text" class="form-control" id="validationDefault02" placeholder="Otto"
+                                <label for="patient_last_name">Last name*</label>
+                                <input type="text" class="form-control" id="patient_last_name" name="lastName_field" placeholder={{patientLastName}}
                                     required>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <div class="well">
                                     <div class="form-group">
                                         <label>Date of birth*</label>
-                                        <input type="date" class="form-control" id="exampleInputDOB1"
+                                        <input type="date" class="form-control" id="patientDOB" name="birth_date_field"
                                             placeholder="Date of Birth">
                                     </div>
                                 </div>
@@ -39,27 +39,27 @@
                             <div class="col-md-4 mb-3">
                                 <div class="well">
                                     <div class="form-group">
-                                        <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Gender*</label>
-                                        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref"
+                                        <label class="my-1 mr-2" for="patient_genre">Gender*</label>
+                                        <select class="custom-select my-1 mr-sm-2" id="patient_genre" name="genre_field"
                                             required>
-                                            <option selected>Choose...</option>
-                                            <option value="1">Male</option>
-                                            <option value="2">Female</option>
+                                            <option selected value="">Choose...</option>
+                                            <option value="Male">male</option>
+                                            <option value="Female">female</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-8 mb-3">
-                                <label class="my-1 mr-2" for="validationDefault04">Reason for the visit</label>
-                                <input type="text" class="form-control my-1 mr-sm-2" id="validationDefault01"
+                                <label class="my-1 mr-2" for="visit_reason">Reason for the visit</label>
+                                <input type="text" class="form-control my-1 mr-sm-2" id="visit_reason" name="reason_field"
                                     placeholder="Optional">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <div class="form-group">
                                     <div class="well">
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Email address*</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                            <label for="patient-email">Email address*</label>
+                                            <input type="email" class="form-control" id="patient-email" name="email_field"
                                                 aria-describedby="emailHelp" required>
                                             <small id="emailHelp" class="form-text text-muted">We'll never share your
                                                 email with anyone
@@ -70,8 +70,8 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <div class="form-group">
-                                    <label for="formGroupExampleInput">Phone number</label>
-                                    <input type="text" class="form-control" id="formGroupExampleInput"
+                                    <label for="contact_phone">Phone number</label>
+                                    <input type="text" class="form-control" id="contact_phone" name="phone_field"
                                         placeholder="Enter 10 digit number">
                                 </div>
                             </div>
@@ -79,8 +79,8 @@
                                 <div class="col">
                                     <div class="form-check">
                                         <input class="form-check-input my-1 mr-sm-2" type="checkbox" value=""
-                                            id="invalidCheck2" required></input>
-                                        <label class="form-check-label" for="invalidCheck2">
+                                            id="invalidCheck" required></input>
+                                        <label class="form-check-label" for="invalidCheck">
                                             * Agree to Medik terms and conditions.
                                         </label>
                                     </div>
@@ -108,9 +108,9 @@
                 <h3 class="card-text" id="txt-clr">Monday, december 30th at 1:00 p.m.</h3>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item" id="appointment-details">Dr. Name</li>
-                <li class="list-group-item" id="appointment-details">Dr. Specialty</li>
-                <li class="list-group-item" id="appointment-details">Dr. Address</li>
+                <li class="list-group-item" id="appointment-details"><span id="muted-txt">MD: </span>{{doctorName}}</li>
+                <li class="list-group-item" id="appointment-details"><span id="muted-txt">Speciality: </span>{{doctorSpeciality}}</li>
+                <li class="list-group-item" id="appointment-details"><span id="muted-txt">Address: </span>{{doctorAddress}}</li>
             </ul>
             <div class="card-body">
                 <a href="#" class="card-link">Change date and time</a>
@@ -120,3 +120,12 @@
 </div>
 
 </div>
+
+
+
+
+
+
+
+<!-- Custom Script -->
+<script src="../public/js/appointment.js" type="text/javascript"></script>
