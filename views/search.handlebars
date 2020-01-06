@@ -54,7 +54,7 @@
                                                     {{#hasAppointment id 0}}
                                                         <button type="button" class="btn btn-secondary mt-2" style="width: 4rem" disabled>{{time timeslot}}</button>
                                                     {{else}}
-                                                        <button type="button" class="btn btn-primary mt-2" style="width: 4rem" id={{timeId ../date timeslot}} data-doctor={{../../../id}} data-office={{../../id}}>{{time timeslot}}</button>
+                                                        <button type="button" class="btn btn-primary mt-2" style="width: 4rem" id={{timeId ../date timeslot}} data-doctor={{../../../id}} data-doctorName={{join ../../../name}} data-specialty={{join ../../../../name}} data-office={{../../id}}  data-address={{join ../../address}}>{{time timeslot}}</button>
                                                     {{/hasAppointment}}
                                                     {{/each}}
                                                 </div>
