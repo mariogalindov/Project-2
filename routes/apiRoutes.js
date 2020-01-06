@@ -153,5 +153,54 @@ module.exports = function (app) {
         res.end(jsonresp);
       })
   });
+
+  app.post("/appointments/:user_account_id", function(req, res) {
+    // client data
+    var name =  req.body.name;
+    var lastName = req.body.lastName;
+    var phoneNumber = req.body.phoneNumber;
+    var email = req.body.email;
+
+    // client creation
+    db.client_account.create({
+      first_name: name,
+      last_name: lastName,
+      contact_number: phoneNumber,
+      email: email
+    })
+    .then(newClient =>  {
+      res.json(newClient);
+    })
+
+    //appointment data
+    var user_id = "xxxx" // de donde se saca esta info? 
+    //se debería de generar en automatico cuando se cree el cliente (creo que si esta pero falta belongsTo en tabla appointments a la client_account), 
+    //se tiene que hacer una consulta de esa table después de generar cliente? Eager Loading?
+    var office_id = req.body.office_id // de donde va a salir? Viene de la ventana previa en donde se elige el horario, se manda en el post? 
+    var appointment_time = req.body.time // mismo caso, viene del valor del botón que detona el appointment.handlebars
+    var endTime = "123" // cómo se calcula? 
+    var appointment_satus = 1 // cuando cambia el status? Que se genere siempre con 1?
+    var appointment_date = "2020-01-30 10:00:00" // también me imagino que viene de search.handlebars
+    var booking_channel = 1 //siempre se maneja como 1 por ser a través de web app? 
+
+    //appointment creation
+    db.appointment.create({
+      user_account_id: user_id,
+      office_id: office_id,
+      probable_start_time: appointment_time,
+      actual_end_time: endTime,
+      appointment_status_id: appointment_satus,
+      appointment_taken_date: appointment_date,
+      app_booking_channel_id: booking_channel
+    })
+    .then(newAppointment => {
+      res.json(newAppointment);
+    })
+
+    // Cómo le hago para que se despliegue la info de la cita con la info del cliente/usuario? Eager Loading? 
+    //Creo que falta meterle el belongsTo a la tabla de appointments para hilarla con la de client_account
+  });
+
+
 };
 

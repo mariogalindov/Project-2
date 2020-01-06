@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Audiogalaxy1!",
+    "password": "",
     "database": "med_appt_bkg_app",
     "host": "localhost",
     "dialect": "mysql"
