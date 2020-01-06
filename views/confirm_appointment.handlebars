@@ -11,7 +11,7 @@
         </div>
         <div class="card-body">
           <h5 class="card-title">My appointment information.</h5>
-          <p class="card-text">We've got you covered. Medik will schedule your appointment as follows:</p>
+          <p class="card-text">We've got you covered. Medik will book your appointment as follows:</p>
           <div class="alert alert-success" role="alert">
             <i class="fas fa-calendar-check"></i> Your visit is scheduled for <a href="#" class="alert-link">Monday,
               January 6th, 2020 | 17:30 hr.</a> <span id="muted-txt">Please arrive 10 minutes
@@ -37,8 +37,8 @@
             {{else}}
             {{/if}}
             {{#if patientReason}}
-            <li class="list-group-item"><i class="fas fa-notes-medical" id="muted-txt"></i> <span id="muted-txt">Note to
-                the Doctor: </span> {{patientReason}}</li>
+            <li class="list-group-item"><i class="fas fa-notes-medical" id="muted-txt"></i> <span id="muted-txt">Note for
+                the doctor: </span> {{patientReason}}</li>
             {{else}}
             {{/if}}
             <li class="list-group-item"><i class="fas fa-envelope" id="muted-txt"></i> <span id="muted-txt"> Email:
@@ -71,7 +71,7 @@
           </div>
           <br>
           <a href="javascript:history.back()" class="btn btn-success btn-lg btn-block" data-toggle="modal"
-            data-target="#staticBackdrop">Confirm your appointment</a>
+            data-target="#staticBackdrop">Confirm my appointment</a>
           <small id="passwordHelpBlock" class="form-text text-muted text-center">
             Once confirmed, we will send you an email with the details.
           </small>

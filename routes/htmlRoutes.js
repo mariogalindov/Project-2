@@ -1,12 +1,12 @@
 // =============================================================
-// Defining and using separate route modules
+// Routing modules
 // =============================================================
 
 // DEPENDENCIES
 // =============================================================
 var db = require("../models");
 var dottie = require("dottie");
-var moment = require('moment'); 
+var moment = require('moment');
 var bodyParser = require('body-parser')
 var path = require("path");
 
@@ -16,38 +16,13 @@ var path = require("path");
 
 module.exports = function (app) {
 
-  // index route loads HOME page
+  // index route loads HOME page (GET method)
   app.get("/", function (req, res) {
     res.render("index");
     console.log("rendering views/index.handlebars from routes/htmlRoutes.js");
   });
 
-  app.get("/patient/create_appointment", function (req, res) {
-    res.render("appointment", {
-      patientName: "Guillermo",
-      patientLastName: "Salcedo",
-      doctorName: "Jerry SMITH",
-      doctorSpeciality: "Family medicin",
-      doctorAddress: "123 North St, 25503 NY"
-    });
-    console.log("rendering views/appointment.handlebars from routes/htmlRoutes.js");
-  });
-  
-  app.post("/patient/submit_appointment_form", function (req, res) {
-    var appointmentObj = {
-      patientName:req.body.name_field,
-      patientLastName:req.body.lastName_field,
-      patientDOB:req.body.birth_date_field,
-      patientGenre:req.body.genre_field,
-      patientReason:req.body.reason_field,
-      patientEmail:req.body.email_field,
-      patientPhone:req.body.phone_field
-    }
-    res.render("confirm_appointment", appointmentObj );
-    console.log(appointmentObj);
-  });
-  
-  // search speciality + city from HOME and render search results and availability
+  // Search speciality + city from HOME and render search results and availability
   function IsValidJSONString(str) {
     try {
       JSON.parse(str);
@@ -155,24 +130,25 @@ module.exports = function (app) {
         }
         jsonresp += "]";
         console.log(jsonresp);
+        console.log("MEMO <routes/<htmlRoutes.js> route is in use >>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         if (IsValidJSONString(jsonresp)) {
           jsonresp = JSON.parse(jsonresp);
         }
         res.render("search", {
           jsonresp,
           helpers: {
-            stringit: function (expression) {
-              return JSON.stringify(expression)
-            },
-            jsonit: function (expression) {
-              return JSON.parse(expression);
-            },
+            stringit: function (expression) {  
+              return JSON.stringify(expression) 
+            }, 
+            jsonit: function (expression) { 
+              return JSON.parse(expression); 
+            }, 
             datifier: function (expression) {
               return moment(expression).format("DD/MM/YY")
             },
-            dateTime: function (expression) {
-              return moment(expression).format("DD/MM/YY HH:mm")
-            },
+            dateTime: function (expression) { 
+              return moment(expression).format("DD/MM/YY HH:mm") 
+            }, 
             listGroupItem: function (element) {
               return "list-group-item " + element
             },
@@ -203,6 +179,33 @@ module.exports = function (app) {
           }
         });
       })
+  });
+
+  // Create an appointment route renders appointment form (GET method)
+  app.get("/patient/create_appointment/?", function (req, res) {
+    res.render("appointment", {
+      patientName: "Guillermo",
+      patientLastName: "Salcedo",
+      doctorName: "Jerry SMITH",
+      doctorSpeciality: "Family medicin",
+      doctorAddress: "123 North St, 25503 NY",
+    });
+    console.log("rendering views/appointment.handlebars from routes/htmlRoutes.js");
+  });
+
+  // Submit an appointment route posts appointment data from form and renders confirmation form
+  app.post("/patient/submit_appointment_form", function (req, res) {
+    var appointmentObj = {
+      patientName: req.body.name_field,
+      patientLastName: req.body.lastName_field,
+      patientDOB: req.body.birth_date_field,
+      patientGenre: req.body.genre_field,
+      patientReason: req.body.reason_field,
+      patientEmail: req.body.email_field,
+      patientPhone: req.body.phone_field
+    }
+    res.render("confirm_appointment", appointmentObj);
+    console.log(appointmentObj);
   });
 };
 

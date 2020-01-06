@@ -151,7 +151,6 @@ module.exports = function (app) {
         jsonresp += "]";
         console.log(jsonresp);
         res.end(jsonresp);
-        // res.end(JSON.stringify(results));
       })
   });
 };

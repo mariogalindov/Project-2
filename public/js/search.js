@@ -1,35 +1,40 @@
-document.addEventListener("DOMContentLoaded", function() {
-  var officeDropdown = $("#dropdown-toggle");
+// This file grabs user selection data to send it to the users-api-route. There it will create a new url
+var selectedDoctor = "";
+var selectedDoctorID = "";
+var selectedOffice = "";
+var selectedTimeSlot = "";
+var queryURL = "";
 
-  // Funcion para mostrar los horarios disponibles para una oficina
-  var showOfficeAvailability = function(elementId) {
-    $("#" + elementId).removeClass("d-none");
-  };
+$(document).ready(function() {
+  console.log("ready");
 
-  $("#officePickerButton").on("click", function() {
-    var officeId = $("#officesDropdown").val();
-    var doctorId = $("#officesDropdown").attr("data-doctor");
-    console.log("Selected doctor id = " + doctorId);
-    console.log("Selected office Id = " + officeId);
-    $(".officeRow").each(function(i, obj) {
-      if (
-        !$(this).hasClass("d-none") &&
-        $(this).attr("id") !== officeId &&
-        $(this).attr("data-doctor") === doctorId
-      ) {
-        $(this).addClass("d-none");
-      } else if (
-        $(this).hasClass("d-none") &&
-        $(this).attr("id") === officeId &&
-        $(this).attr("data-doctor") === doctorId
-      ) {
-        $(this).removeClass("d-none");
-      }
+  $("button").on("click", function(event) {
+    event.preventDefault();
+    console.log("clicked");
+    console.log(selectedDoctor);
+    selectedDoctor = $(this).attr("data-doctor");
+    selectedDoctorID = $(this).attr("data-doctor");
+    selectedOffice = $(this).attr("data-office");
+    selectedTimeSlot = $(this).attr("id");
+    var root = "/patient/create_appointment/";
+    queryURL =
+      root +
+      "&doctor-slection=" +
+      selectedDoctor +
+      "&doctor-id=" +
+      selectedDoctorID +
+      "&doctor-office=" +
+      selectedOffice +
+      "&timeslot=" +
+      selectedTimeSlot;
+    console.log(queryURL);
+    // Creating an AJAX call for the specific selected button being clicked
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+      console.log(response);
+      console.log("success!!!!");
     });
   });
-
-  $("#goBackToIndex").on("click", function() {
-    location.href = "/";
-  });
 });
-
