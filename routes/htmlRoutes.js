@@ -199,20 +199,8 @@ module.exports = function(app) {
           jsonresp = JSON.parse(jsonresp);
         }
         res.render("search",{jsonresp, helpers: {
-          stringit: function(expression){
-            return JSON.stringify(expression)
-          },
-          jsonit: function(expression){
-            return JSON.parse(expression);
-          },
           datifier: function(expression){
             return moment(expression).format("DD/MM/YY")
-          },
-          dateTime: function(expression){
-            return moment(expression).format("DD/MM/YY HH:mm")
-          },
-          listGroupItem: function(element){
-            return "list-group-item " + element
           },
           time: function(expression){
             return moment(expression, "HH:mm:ss").format("HH:mm")
@@ -237,6 +225,9 @@ module.exports = function(app) {
           },
           hasAppointment: function(arg1,arg2,options){
             return (arg1 > arg2) ? options.fn(this) : options.inverse(this);
+          },
+          join: function(string){
+            return string.split(" ").join("_");
           }
         }
       });
