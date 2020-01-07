@@ -1,39 +1,14 @@
+// =============================================================
+// Routing modules
+// =============================================================
+
+// DEPENDENCIES
+// =============================================================
 var db = require("../models");
 var dottie = require("dottie");
 var moment = require('moment');
-
-// var db = require("../models");
-
-// module.exports = function(app) {
-//   // Load index page
-//   app.get("/", function(req, res) {
-//     db.Specialization.findAll({}).then(function(dbExamples) {
-//       res.render("index", {
-//         msg: "Welcome!",
-//         examples: dbExamples
-//       });
-//     });
-//   });
-
-//   // Load example page and pass in an example by id
-//   app.get("/example/:id", function(req, res) {
-//     db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-//       res.render("example", {
-//         example: dbExample
-//       });
-//     });
-//   });
-
-//   // Render 404 page for any unmatched routes
-//   app.get("*", function(req, res) {
-//     res.render("404");
-//   });
-// };
-
-
-
-
-
+var bodyParser = require('body-parser')
+var path = require("path");
 
 // Dependencies
 // =============================================================
@@ -232,6 +207,49 @@ module.exports = function(app) {
         }
       });
     })
+  });
+
+  // Create an appointment route renders appointment form (GET method)
+  app.get("/patient/create_appointment/:drid/:drname/:drsp/:office/:address/:timeslot", function (req, res) {
+    var selectedDoctorID = req.params.drid;
+    var selectedDoctorName = req.params.drname;
+    var selectedDoctorSpecialty = req.params.drsp;
+    var selectedDoctorOffice = req.params.office;
+    var address = req.params.address;
+    var timeslot = req.params.timeslot;
+
+    console.log("Selected Doctor: " + selectedDoctorID);
+    console.log("Selected Doctor: " + selectedDoctorName);
+    console.log("Selected Office: " + selectedDoctorSpecialty);
+    console.log("Selected Office: " + selectedDoctorOffice);
+    console.log("Selected Office: " + address);
+    console.log("Timeslot: " + timeslot);
+
+    // appointment page injection with selected appointment data
+    res.render("appointment", {
+      selectedDoctorID: selectedDoctorID,
+      selectedDoctorName: selectedDoctorName,
+      selectedDoctorSpecialty: selectedDoctorSpecialty,
+      selectedDoctorOffice: selectedDoctorOffice,
+      address: address,
+      timeslot: timeslot
+    });
+    console.log("rendering views/appointment.handlebars from routes/htmlRoutes.js");
+  });
+
+  // Submit an appointment route posts appointment data from form and renders confirmation form
+  app.post("/patient/submit_appointment_form", function (req, res) {
+    var appointmentObj = {
+      patientName: req.body.name_field,
+      patientLastName: req.body.lastName_field,
+      patientDOB: req.body.birth_date_field,
+      patientGenre: req.body.genre_field,
+      patientReason: req.body.reason_field,
+      patientEmail: req.body.email_field,
+      patientPhone: req.body.phone_field
+    }
+    res.render("confirm_appointment", appointmentObj);
+    console.log(appointmentObj);
   });
 
 };

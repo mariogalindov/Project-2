@@ -1,14 +1,14 @@
 {
   "development": {
     "username": "root",
-    "password": "Audiogalaxy1!",
+    "password": "Salcedo1@1",
     "database": "med_appt_bkg_app",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "Salcedo1@1",
+    "password": null,
     "database": "testdb",
     "host": "localhost",
     "dialect": "mysql",
