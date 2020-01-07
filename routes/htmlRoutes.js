@@ -134,48 +134,36 @@ module.exports = function (app) {
         if (IsValidJSONString(jsonresp)) {
           jsonresp = JSON.parse(jsonresp);
         }
-        res.render("search", {
-          jsonresp,
-          helpers: {
-            stringit: function (expression) {  
-              return JSON.stringify(expression) 
-            }, 
-            jsonit: function (expression) { 
-              return JSON.parse(expression); 
-            }, 
-            datifier: function (expression) {
-              return moment(expression).format("DD/MM/YY")
-            },
-            dateTime: function (expression) { 
-              return moment(expression).format("DD/MM/YY HH:mm") 
-            }, 
-            listGroupItem: function (element) {
-              return "list-group-item " + element
-            },
-            time: function (expression) {
-              return moment(expression, "HH:mm:ss").format("HH:mm")
-            },
-            timeId: function (dateExp, timeExp) {
-              var dateId = moment(dateExp).format("DDMMYYYY");
-              var timeId = moment(timeExp, "HH:mm:ss").format("HHmm");
-              return dateId + timeId;
-            },
-            datesCarousel: function (officeId) {
-              return "datesCarouselOf" + officeId
-            },
-            htDatesCarousel: function (officeId) {
-              return "#datesCarouselOf" + officeId
-            },
-            lengthOfArray: function (v1, v2, options) {
-              'use strict';
-              if (v1.length > v2) {
-                return options.fn(this);
-              }
-              return options.inverse(this);
-            },
-            hasAppointment: function (arg1, arg2, options) {
-              return (arg1 > arg2) ? options.fn(this) : options.inverse(this);
+        res.render("search",{jsonresp, helpers: {
+          datifier: function(expression){
+            return moment(expression).format("DD/MM/YY")
+          },
+          time: function(expression){
+            return moment(expression, "HH:mm:ss").format("HH:mm")
+          },
+          timeId: function(dateExp, timeExp){
+            var dateId = moment(dateExp).format("DDMMYYYY");
+            var timeId = moment(timeExp, "HH:mm:ss").format("HHmm");
+            return dateId + timeId;
+          },
+          datesCarousel: function(officeId){
+            return "datesCarouselOf" + officeId
+          },
+          htDatesCarousel: function(officeId){
+            return "#datesCarouselOf" + officeId
+          },
+          lengthOfArray: function(v1,v2,options){
+            'use strict';
+            if(v1.length>v2){
+              return options.fn(this);
             }
+            return options.inverse(this);
+          },
+          hasAppointment: function(arg1,arg2,options){
+            return (arg1 > arg2) ? options.fn(this) : options.inverse(this);
+          },
+          join: function(string){
+            return string.split(" ").join("_");
           }
         });
       })
