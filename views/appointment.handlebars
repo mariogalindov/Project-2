@@ -3,7 +3,7 @@
 
 <!-- Patient information -->
 <div class="container">
-    <br><br><br>
+    <br><br><br><br><br>
     <div class="row">
         <div class="col-lg-8">
             <div class="card">
@@ -109,11 +109,10 @@
                 <h3 class="card-text" id="txt-clr">Monday, december 30th at 1:00 p.m.</h3>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item" id="appointment-details"><span id="muted-txt">MD: </span>{{selectedDoctor}}</li>
-                <li class="list-group-item" id="appointment-details"><span id="muted-txt">Speciality:
-                    </span>{{doctorSpeciality}}</li>
-                <li class="list-group-item" id="appointment-details"><span id="muted-txt">Address:
-                    </span>{{doctorAddress}}</li>
+                <li class="list-group-item" id="appointment-details">{{selectedDoctorName}}</li>
+                <li class="list-group-item" id="appointment-details">{{selectedDoctorSpecialty}}</li>
+                <li class="list-group-item" id="appointment-details">{{address}}</li>
+                <li class="list-group-item" id="appointment-details">{{timeslot}}</li>
             </ul>
             <div class="card-body">
                 <a href="#" class="card-link">Change date and time</a>

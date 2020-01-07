@@ -8,6 +8,13 @@ var db = require("../models");
 var dottie = require("dottie");
 var moment = require('moment');
 var bodyParser = require('body-parser')
+<<<<<<< HEAD
+=======
+var path = require("path");
+
+// Dependencies
+// =============================================================
+>>>>>>> master
 var path = require("path");
 
 
@@ -170,22 +177,43 @@ module.exports = function (app) {
   });
 
   // Create an appointment route renders appointment form (GET method)
+<<<<<<< HEAD
   app.get("patient/create_appointment/:drname/:id/:office/:timeslot", function (req, res) {
     var selectedDoctorID = req.params.drname;
     var selectedDoctorName = req.params.id;
     var selectedDoctorOffice = req.params.office;
+=======
+  app.get("/patient/create_appointment/:drid/:drname/:drsp/:office/:address/:timeslot", function (req, res) {
+    var selectedDoctorID = req.params.drid;
+    var selectedDoctorName = req.params.drname;
+    var selectedDoctorSpecialty = req.params.drsp;
+    var selectedDoctorOffice = req.params.office;
+    var address = req.params.address;
+>>>>>>> master
     var timeslot = req.params.timeslot;
 
     console.log("Selected Doctor: " + selectedDoctorID);
     console.log("Selected Doctor: " + selectedDoctorName);
+<<<<<<< HEAD
     console.log("Selected Office: " + selectedDoctorOffice);
+=======
+    console.log("Selected Office: " + selectedDoctorSpecialty);
+    console.log("Selected Office: " + selectedDoctorOffice);
+    console.log("Selected Office: " + address);
+>>>>>>> master
     console.log("Timeslot: " + timeslot);
 
     // appointment page injection with selected appointment data
     res.render("appointment", {
       selectedDoctorID: selectedDoctorID,
       selectedDoctorName: selectedDoctorName,
+<<<<<<< HEAD
       selectedDoctorOffice: selectedDoctorOffice,
+=======
+      selectedDoctorSpecialty: selectedDoctorSpecialty,
+      selectedDoctorOffice: selectedDoctorOffice,
+      address: address,
+>>>>>>> master
       timeslot: timeslot
     });
     console.log("rendering views/appointment.handlebars from routes/htmlRoutes.js");
@@ -205,4 +233,8 @@ module.exports = function (app) {
     res.render("confirm_appointment", appointmentObj);
     console.log(appointmentObj);
   });
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 };
