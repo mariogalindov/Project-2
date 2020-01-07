@@ -182,13 +182,23 @@ module.exports = function (app) {
   });
 
   // Create an appointment route renders appointment form (GET method)
-  app.get("/patient/create_appointment/?", function (req, res) {
+  app.get("patient/create_appointment/:drname/:id/:office/:timeslot", function (req, res) {
+    var selectedDoctorID = req.params.drname;
+    var selectedDoctorName = req.params.id;
+    var selectedDoctorOffice = req.params.office;
+    var timeslot = req.params.timeslot;
+
+    console.log("Selected Doctor: " + selectedDoctorID);
+    console.log("Selected Doctor: " + selectedDoctorName);
+    console.log("Selected Office: " + selectedDoctorOffice);
+    console.log("Timeslot: " + timeslot);
+
+    // appointment page injection with selected appointment data
     res.render("appointment", {
-      patientName: "Guillermo",
-      patientLastName: "Salcedo",
-      doctorName: "Jerry SMITH",
-      doctorSpeciality: "Family medicin",
-      doctorAddress: "123 North St, 25503 NY",
+      selectedDoctorID: selectedDoctorID,
+      selectedDoctorName: selectedDoctorName,
+      selectedDoctorOffice: selectedDoctorOffice,
+      timeslot: timeslot
     });
     console.log("rendering views/appointment.handlebars from routes/htmlRoutes.js");
   });
@@ -208,4 +218,3 @@ module.exports = function (app) {
     console.log(appointmentObj);
   });
 };
-
