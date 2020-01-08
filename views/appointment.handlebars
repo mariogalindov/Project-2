@@ -1,5 +1,4 @@
-
-<script type="text/javascript" src="../public/js/search.js"></script>
+<script type="text/javascript" src="./js/appointment.js"></script>
 
 <!-- Patient information -->
 <div class="container">
@@ -87,10 +86,35 @@
                                     </div>
                                 </div>
                             </div>
+                            {{!-- Hidden Form data MARIO --}}
+                            <div class="col-md-8 mb-3" hidden>
+                                <label class="my-1 mr-2" for="mario-id">mariodata</label>
+                                <input type="text" class="form-control my-1 mr-sm-2" name="mario-id" value={{selectedDoctorID}}>
+                            </div>
+                            <div class="col-md-8 mb-3" hidden>
+                                <label class="my-1 mr-2" for="mario-name">mariodata</label>
+                                <input type="text" class="form-control my-1 mr-sm-2" name="mario-name" value={{selectedDoctorName}}>
+                            </div>
+                            <div class="col-md-8 mb-3" hidden>
+                                <label class="my-1 mr-2" for="mario-specialty">mariodata</label>
+                                <input type="text" class="form-control my-1 mr-sm-2" name="mario-specialty" value={{selectedDoctorSpecialty}}>
+                            </div>
+                            <div class="col-md-8 mb-3" hidden>
+                                <label class="my-1 mr-2" for="mario-office">mariodata</label>
+                                <input type="text" class="form-control my-1 mr-sm-2" name="mario-office" value={{selectedDoctorOffice}}>
+                            </div>
+                            <div class="col-md-8 mb-3" hidden>
+                                <label class="my-1 mr-2" for="mario-address">mariodata</label>
+                                <input type="text" class="form-control my-1 mr-sm-2" name="mario-address" value={{address}}>
+                            </div>
+                            <div class="col-md-8 mb-3" hidden>
+                                <label class="my-1 mr-2" for="mario-timeslot">mariodata</label>
+                                <input type="text" class="form-control my-1 mr-sm-2" name="mario-timeslot" value={{timeslot}}>
+                            </div>
                             <hr>
                             <div class="form-row">
                                 <div class="col">
-                                    <button class="btn btn-primary " type="submit">Continue</button>
+                                    <button class="btn btn-primary" id="continue-btn">Continue</button>
                                 </div>
                             </div>
                     </form>
@@ -122,3 +146,5 @@
 </div>
 
 </div>
+
+
