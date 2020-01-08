@@ -163,6 +163,13 @@ module.exports = function (app) {
             }
             return options.inverse(this);
           },
+          lengthOfArrayV2: function(num,v1,options){
+            'use strict';
+            if(num.length === v1){
+              return options.fn(this);
+            }
+            return options.inverse(this);
+          },
           hasAppointment: function(arg1,arg2,options){
             return (arg1 > arg2) ? options.fn(this) : options.inverse(this);
           },
