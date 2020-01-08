@@ -184,19 +184,22 @@ module.exports = function (app) {
     var appointment_status = 1 // cuando cambia el status? Que se genere siempre con 1?
     // var appointment_date = "2020-01-30 10:00:00" // también me imagino que viene de search.handlebars
     var booking_channel = 1 //siempre se maneja como 1 por ser a través de web app? 
-
+    console.log(req.body);
     //appointment creation
     db.appointment.create({
       user_account_id: user_id,
-      office_id: office_id,
+      office_id: parseInt(office_id),
       probable_start_time: appointmentTimestamp,
-      actual_end_time: endTime,
+      // actual_end_time: endTime,
       appointment_status_id: appointment_status,
-      appointment_taken_date: appointment_date,
+      // appointment_taken_date: appointment_date,
       app_booking_channel_id: booking_channel
     })
     .then(newAppointment => {
-      res.render(newAppointment);
+      console.log(newAppointment)
+      // res.json(newAppointment);
+      res.render("appointment_confirmation", newAppointment)
+
     })
 
     // Cómo le hago para que se despliegue la info de la cita con la info del cliente/usuario? Eager Loading? 
