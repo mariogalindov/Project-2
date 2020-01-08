@@ -228,7 +228,14 @@ module.exports = function (app) {
       patientReason: req.body.reason_field,
       patientEmail: req.body.email_field,
       patientPhone: req.body.phone_field,
+      selectedDoctorID: req.body["mario-id"],
+      selectedDoctorName: req.body["mario-name"],
+      selectedDoctorSpecialty: req.body["mario-specialty"],
+      selectedDoctorOffice: req.body["mario-office"],
+      address: req.body["mario-address"],
+      timeslot: req.body["mario-timeslot"]
     }
+
     res.render("confirm_appointment", appointmentObj);
     console.log(appointmentObj);
   });

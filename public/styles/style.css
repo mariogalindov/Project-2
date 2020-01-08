@@ -172,9 +172,9 @@ body {
     color: gray;
 }
 
-i::after {
+/* i::after {
     $breadcrumb-divider: none;
-}
+} */
 
 /* @media */
 
@@ -228,6 +228,7 @@ i::after {
     position: absolute;
     left: 0%;
     top:80px;
+    /* width: 10px; */
 }
 
 .carousel-control-next-icon {
@@ -235,6 +236,14 @@ i::after {
     position: absolute;
     right: 0%;
     top: 80px;
+}
+
+#carouContrPrev {
+    width: 20px;
+}
+
+#carouContrNext {
+    width: 20px;
 }
 
 .card-img-top{

@@ -5,8 +5,11 @@ var selectedOffice = "";
 var selectedTimeSlot = "";
 var queryURL = "/patient/create_appointment";
 
+
+
+
 $(document).ready(function() {
-  console.log("ready");
+  console.log("document loaded andready");
 
   $(".appt").on("click", function(event) {
     event.preventDefault();
@@ -39,7 +42,9 @@ $(document).ready(function() {
     $.ajax({
       url: queryURL,
       method: "GET"
+      // body: 
     }).then(function(response) {
+
       //  function to compile handlebars template
       console.log(response);
       $("html").html(response);
