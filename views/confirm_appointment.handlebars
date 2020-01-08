@@ -13,8 +13,7 @@
           <h5 class="card-title">My appointment information.</h5>
           <p class="card-text">We've got you covered. Medik will book your appointment as follows:</p>
           <div class="alert alert-success" role="alert">
-            <i class="fas fa-calendar-check"></i> Your visit is scheduled for <a href="#" class="alert-link">Monday,
-              January 6th, 2020 | 17:30 hr.</a> <span id="muted-txt">Please arrive 10 minutes
+            <i class="fas fa-calendar-check"></i> Your visit is scheduled for <a href="#" class="alert-link">{{timeslot}}</a> <span id="muted-txt">Please arrive 10 minutes
               earlier.</span>
           </div>
           <nav aria-label="breadcrumb">
@@ -62,9 +61,9 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title"><i class="fas fa-user-md" id="muted-txt"></i> Jerry Smith</h5>
-                  <p class="card-text"><small class="text-muted">Family Medicine</small></p>
-                  <p class="card-text"><i class="far fa-hospital" id="muted-txt"></i> 1234 North Road, NY</p>
+                  <h5 class="card-title"><i class="fas fa-user-md" id="muted-txt"></i> {{selectedDoctorName}}</h5>
+                  <p class="card-text"><small class="text-muted">{{selectedDoctorSpecialty}}</small></p>
+                  <p class="card-text"><i class="far fa-hospital" id="muted-txt"></i> {{address}}</p>
                 </div>
               </div>
             </div>

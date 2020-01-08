@@ -177,11 +177,20 @@ module.exports = function (app) {
   // Create an appointment route renders appointment form (GET method)
   app.get("/patient/create_appointment/:drid/:drname/:drsp/:office/:address/:timeslot", function (req, res) {
     var selectedDoctorID = req.params.drid;
-    var selectedDoctorName = req.params.drname;
-    var selectedDoctorSpecialty = req.params.drsp;
+    var rawName = req.params.drname;
+    var selectedDoctorName = rawName.replace(/_/g, " ");
+    var rawSpecialty = req.params.drsp;
+    var selectedDoctorSpecialty = rawSpecialty.replace(/_/g, " ");
     var selectedDoctorOffice = req.params.office;
-    var address = req.params.address;
-    var timeslot = req.params.timeslot;
+    var rawAddress = req.params.address;
+    var address = rawAddress.replace(/_/g, " ");
+    var timestamp = parseInt(req.params.timeslot);
+
+
+    var formatted = moment(timestamp).format('LLLL');
+    console.log(formatted);
+    var timeslot = formatted;
+
 
     console.log("Selected Doctor: " + selectedDoctorID);
     console.log("Selected Doctor: " + selectedDoctorName);
@@ -211,7 +220,7 @@ module.exports = function (app) {
       patientGenre: req.body.genre_field,
       patientReason: req.body.reason_field,
       patientEmail: req.body.email_field,
-      patientPhone: req.body.phone_field
+      patientPhone: req.body.phone_field,
     }
     res.render("confirm_appointment", appointmentObj);
     console.log(appointmentObj);

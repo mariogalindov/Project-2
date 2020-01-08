@@ -19,17 +19,17 @@ $(document).ready(function() {
     selectedAddress = $(this).attr("data-address")
     selectedTimeSlot = $(this).attr("id");
 
-    queryURL += "/drid=";
+    queryURL += "/";
     queryURL += selectedDoctorID;
-    queryURL += "/drname=";
+    queryURL += "/";
     queryURL += selectedDoctor;
-    queryURL += "/drsp=";
+    queryURL += "/";
     queryURL += selectedDoctorSp;
-    queryURL += "/office=";
+    queryURL += "/";
     queryURL += selectedOffice;
-    queryURL += "/address=";
+    queryURL += "/";
     queryURL += selectedAddress;
-    queryURL += "/timeslot=";
+    queryURL += "/";
     queryURL += selectedTimeSlot;
     queryURL += "/";
 
@@ -47,6 +47,10 @@ $(document).ready(function() {
     });
   });
 });
+
+// This regular expression will match all inputs that have a blacklisted character in them. The brackets define a character class, and the \ is necessary before the dollar sign because dollar sign has a special meaning in regular expressions.
+// To add more characters to the black list, just insert them between the brackets; order does not matter.
+
 // document.addEventListener("DOMContentLoaded", function() {
 //     var officeDropdown = $("#dropdown-toggle");
 
