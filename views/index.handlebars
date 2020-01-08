@@ -1,26 +1,28 @@
+<script type="text/javascript" src="/js/index.js"></script>
+
 <main role="main">
+
+{{!-- Jumbotron with main search section --}}
     <section class="jumbotron text-center">
       <div class="container">
         <h1 id="title-main">Find reliable doctors near you. <br>Book appointments online.</h1>
         <p class="lead text-muted">With over 10 million visitors each month, Medik is the leading source for people to
           find local doctors, dentists and other health care providers.</p>
-
           <p>
           <div id="homepage-search" >
             <form class="form-inline">
               <select class="custom-select custom-select-lg mb-3 w-40" id="specialtiesDropdown">
-                <option selected>medical specialty...</option>
+                <option selected>popular specialties</option>
                 <option value="1">Allergy & immunology</option>
               </select>
               <select class="custom-select custom-select-lg mb-3 w-40" id="citiesDropdown">
                 <option selected>city...</option>
                 <option value="1">New York City</option>
               </select>
-              <button type="submit" class="btn btn-primary btn-lg mb-3" id="searchButton">Search</button>
+              <button type="submit" class="btn btn-primary btn-lg mb-3" id="searchButton">Search <i class="fas fa-search"></i> </button>
             </form>
           </div>
         </p>
-
       </div>
     </section>
 
@@ -125,12 +127,13 @@
               <p class="lead">The real opinions of thousands of patients will help you always make the best decision.</p>
             </div>
             <div class="col-md-5">
-              <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+              <img src="https://fmg-websites-custom.s3.amazonaws.com/342550-curnes/images/for-physicians.jpg" alt="">
+              {{!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
                 height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false"
                 role="img" aria-label="Placeholder: 500x500">
                 <title>Placeholder</title>
                 <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%" fill="#aaa"
-                  dy=".3em">500x500</text>
+                  dy=".3em">500x500</text> --}}
               </svg>
             </div>
           </div>
@@ -150,12 +153,13 @@
               <p class="lead">Choose the time you prefer and make an appointment without calling. It is easy, comfortable and very convenient.</p>
             </div>
             <div class="col-md-5 order-md-1">
-              <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQJAyETCLCDfgD85-gFdoj4SN_c2YiuCMqs8esiDFqxGB5JUaJO" alt="">
+              {{!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
                 height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false"
                 role="img" aria-label="Placeholder: 500x500">
                 <title>Placeholder</title>
                 <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%" fill="#aaa"
-                  dy=".3em">500x500</text>
+                  dy=".3em">500x500</text> --}}
               </svg>
             </div>
           </div>
@@ -174,13 +178,14 @@
               <p class="lead">The appointment reservation is a free Medik service.</p>
             </div>
             <div class="col-md-5">
-              <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQR1kQ6xsygmyjo-oTFDr_5Itfy0RYag_0b66cQlEbhP3KWvzBa" alt="">
+              {{!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
                 height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false"
                 role="img" aria-label="Placeholder: 500x500">
                 <title>Placeholder</title>
                 <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%" fill="#aaa"
                   dy=".3em">500x500</text>
-              </svg>
+              </svg> --}}
             </div>
           </div>
 
@@ -190,10 +195,130 @@
       <hr class="featurette-divider">
     </div>
 
-<!-- MEDIK TESTIMONIALS CAROUSEL -->    
+<!-- MEDIK TESTIMONIALS CAROUSEL -->   
+
 <div class="row">
+		<div class="col-sm-12">
+			<h2>What <b>our patients</b> are saying</h2>
+			<div id="myCarousel" class="carousel slide" data-ride="carousel">
+				<!-- Carousel indicators -->
+				<ol class="carousel-indicators">
+					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					<li data-target="#myCarousel" data-slide-to="1"></li>
+					<li data-target="#myCarousel" data-slide-to="2"></li>
+				</ol>   
+				<!-- Wrapper for carousel items -->
+				<div class="carousel-inner">
+					<div class="item carousel-item active">
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="media">
+									<div class="media-left d-flex mr-3">
+										<a href="#">
+											<img src="http://www.visuallearner.net/wp-content/uploads/2015/02/john_doe_testimonial-350x350.jpg" alt="">
+										</a>
+									</div>
+									<div class="media-body">
+										<div class="testimonial">
+											<p>I wish I would have thought of it first. Thanks for the great service.</p>
+											<p class="overview"><b>James R.</b>, Media Analyst</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="media">
+									<div class="media-left d-flex mr-3">
+										<a href="#">
+											<img src="https://www.horizzon-thelearningcurve.com/wp-content/uploads/2018/08/testimonial2.jpeg" alt="">
+										</a>
+									</div>
+									<div class="media-body">
+										<div class="testimonial">
+											<p>Wow what great service, I love it! Thank you so much for your help. If you need to find a good doctor able to be trusted - Medik's got you covered.</p>
+											<p class="overview"><b>Plato K</b>, Insurance Broker</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>			
+					</div>
+					<div class="item carousel-item">
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="media">
+									<div class="media-left d-flex mr-3">
+										<a href="#">
+											<img src="https://mikealsopdevelopment.com/wp-content/uploads/2014/06/Jim-Glover1.jpg" alt="">
+										</a>
+									</div>
+									<div class="media-body">
+										<div class="testimonial">
+											<p>"Medik did exactly what it said it does. Keep up the excellent work."</p>
+											<p class="overview"><b>Michael Holz</b>, Software Engineer</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="media">
+									<div class="media-left d-flex mr-3">
+										<a href="#">
+											<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRI6G9VpFuzOwR6Ej9ew-ycxGOnx1o6O2j01ZM5sZvoxkSu1nvD" alt="">
+										</a>
+									</div>
+									<div class="media-body">
+										<div class="testimonial">
+											<p>"I just can't get enough of Medik. I want to get a T-Shirt with Medik on it so I can show it off to everyone."</p>
+											<p class="overview"><b>Mary Saveley</b>, Realstate Agent</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>			
+					</div>
+					<div class="item carousel-item">
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="media">
+									<div class="media-left d-flex mr-3">
+										<a href="#">
+											<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS0W-O68A-qWnxGBl_QZqrUrEjd9_75MyUrcEKkD8SaEmmnBbwm" alt="">
+										</a>
+									</div>
+									<div class="media-body">
+										<div class="testimonial">
+											<p>"Medik is easy and reliable. I will let my mum know about this, she could really make use of Medik!"</p>
+											<p class="overview"><b>Martin Sommer</b>, Architect</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="media">
+									<div class="media-left d-flex mr-3">
+										<a href="#">
+											<img src="https://www.armoniaaparts.com.uy/images/2018/05/17/1.jpg" alt="">
+										</a>
+									</div>
+									<div class="media-body">
+										<div class="testimonial">
+											<p>"I am completely blown away. Nice work Medik. Needless to say we are extremely satisfied with the doctor we found. It's really wonderful."</p>
+											<p class="overview"><b>Aurore T.</b>, Lawyer</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>			
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{{!-- <div class="row">
   <div class="container">
-    <h2 class="featurette-heading" id="txt-clr">Testimonials. <span class="text-muted">See for yourself.</span></h2>
+    <h2 class="featurette-heading" id="txt-clr">What our patients are saying. <span class="text-muted">See for yourself.</span></h2>
     <p class="lead">Read the opinion of our pacients.</p>
     <div class="col">
       <div class="container">
@@ -271,7 +396,7 @@
       <hr class="featurette-divider">
     </div>
   </div>
-</div>
+</div> --}}
 
     
   <!-- MEDIK FEATURED DOCTORS -->
@@ -282,44 +407,39 @@
         <div class="row">
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Doctor #">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Doctor
-                  #</text>
-              </svg>
+              <img class="bd-placeholder-img card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQLidCA6I_kIR-ZiiCVAQwGrrzjMTdLgXM1Y_7m9dOmczy-SXYd" width="100%" 
+                 focusable="true" role="img">
+              </img>
               <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                  content. This content is a little bit longer.</p>
+                <p class="card-title" id="txt-clr">Paul Aslam, MD</p>
+                <p class="card-text">Dr. Aslam has been practicing medicine for more than 20 years. He provides care with compassion, dignity, respect and understands the importance of good health. </p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-outline-secondary">Availability</button>
                     <button type="button" class="btn btn-sm btn-outline-secondary">Profile</button>
                   </div>
-                  <small class="text-muted">Gastroenterologist</small>
+                  <small class="text-muted">Gastroenterology</small>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Doctor #">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Doctor
-                  #</text>
-              </svg>
+              <img class="bd-placeholder-img card-img-top" src="https://www.hindustantimes.com/rf/image_size_960x540/HT/p2/2016/12/22/Pictures/_d2d3609c-c847-11e6-9f83-7f3d2f12db63.jpg" width="100%" 
+                 focusable="true" role="img">
+              </img>
               <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                  content. This content is a little bit longer.</p>
+                <p class="card-title" id="txt-clr">Rita Banick, MD</p>
+                <p class="card-text">Dr. Banick has worked as a primary care physician for over 12 years. She worked at Scripps Clinic Medical Group in Las Mesa, CA. Dr. Bonnick also worked for 3 years with Tucson Medical Associates.</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-outline-secondary">Availability</button>
                     <button type="button" class="btn btn-sm btn-outline-secondary">Profile</button>
                   </div>
-                  <small class="text-muted">Eye Doctor</small>
+                  <small class="text-muted">Family medicine</small>
                 </div>
               </div>
+            </div>
             </div>
           </div>
           <div class="col-md-4">
@@ -476,9 +596,3 @@
     </div>
 
   </main>
-<<<<<<< HEAD
-=======
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
->>>>>>> memo
