@@ -7,24 +7,17 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Medik</title>
 
-  {{!-- JQUERY CDN --}}
-  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-    crossorigin="anonymous"></script>
-
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  {{!-- CSS Style --}}
   <link rel="stylesheet" href="/styles/style.css">
   <title>{{ title }}</title>
 
   {{!-- Font Awesome CDN --}}
   <script src="https://kit.fontawesome.com/feda278045.js" crossorigin="anonymous"></script>
 
-  {{!-- JQUERY CDN --}}
-  <script
-  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
-  crossorigin="anonymous"></script>
+
 
   <style>
     .bd-placeholder-img {
@@ -61,11 +54,11 @@
             <a class="nav-link js-scroll-trigger" href="/">Find a Medic</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#register" data-toggle="modal"
+            <a class="nav-link js-scroll-trigger disabled" href="#register" data-toggle="modal"
               data-target="#staticBackdrop">Register</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#myaccount">My Account</a>
+            <a class="nav-link js-scroll-trigger disabled" href="#myaccount">My Account</a>
           </li>
         </ul>
       </div>
@@ -73,7 +66,7 @@
   </nav>
 
   {{!-- Main body served thru handlebars --}}
-
+ <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <div class="container">
     {{{ body }}}
 
@@ -162,78 +155,14 @@
     <!-- Footer Links -->
     <div class="container text-center text-md-left">
       <!-- Grid row -->
-      <div class="row">
+      <div class="row text-center">
         <!-- Grid column -->
-        <div class="col-md-4 mx-auto">
+        <div class="col-md-12 mx-auto">
           <!-- Content -->
           <h5 class="font-weight-bold text-uppercase mt-3 mb-4">About Medik</h5>
           <p>Browse certified doctors by location, then make an appointment instantly.</p>
           <p>MEDIK 1717 Harrison St, San Francisco, CA 94103, USA</p>
         </div>
-        <!-- Grid column -->
-        <hr class="clearfix w-100 d-md-none">
-        <!-- Grid column -->
-        <div class="col-md-2 mx-auto">
-          <!-- Links -->
-          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
-          <ul class="list-unstyled">
-            <li>
-              <a href="#!">Link 1</a>
-            </li>
-            <li>
-              <a href="#!">Link 2</a>
-            </li>
-            <li>
-              <a href="#!">Link 3</a>
-            </li>
-            <li>
-              <a href="#!">Link 4</a>
-            </li>
-          </ul>
-        </div>
-        <!-- Grid column -->
-        <hr class="clearfix w-100 d-md-none">
-        <!-- Grid column -->
-        <div class="col-md-2 mx-auto">
-          <!-- Links -->
-          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
-          <ul class="list-unstyled">
-            <li>
-              <a href="#!">Link 1</a>
-            </li>
-            <li>
-              <a href="#!">Link 2</a>
-            </li>
-            <li>
-              <a href="#!">Link 3</a>
-            </li>
-            <li>
-              <a href="#!">Link 4</a>
-            </li>
-          </ul>
-        </div>
-        <!-- Grid column -->
-        <hr class="clearfix w-100 d-md-none">
-        <!-- Grid column -->
-        <div class="col-md-2 mx-auto">
-          <!-- Links -->
-          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
-          <ul class="list-unstyled">
-            <li>
-              <a href="#!">Link 1</a>
-            </li>
-            <li>
-              <a href="#!">Link 2</a>
-            </li>
-            <li>
-              <a href="#!">Link 3</a>
-            </li>
-            <li>
-              <a href="#!">Link 4</a>
-            </li>
-          </ul>
-        </div>
-        <!-- Grid column -->
       </div>
       <!-- Grid row -->
     </div>
@@ -290,7 +219,13 @@
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  {{!-- JQUERY CDN --}}
+  {{!-- <script
+  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+  crossorigin="anonymous"></script> --}}
+
+ 
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>

@@ -163,6 +163,13 @@ module.exports = function (app) {
             }
             return options.inverse(this);
           },
+          lengthOfArrayV2: function(num,v1,options){
+            'use strict';
+            if(num.length === v1){
+              return options.fn(this);
+            }
+            return options.inverse(this);
+          },
           hasAppointment: function(arg1,arg2,options){
             return (arg1 > arg2) ? options.fn(this) : options.inverse(this);
           },
@@ -221,7 +228,14 @@ module.exports = function (app) {
       patientReason: req.body.reason_field,
       patientEmail: req.body.email_field,
       patientPhone: req.body.phone_field,
+      selectedDoctorID: req.body["mario-id"],
+      selectedDoctorName: req.body["mario-name"],
+      selectedDoctorSpecialty: req.body["mario-specialty"],
+      selectedDoctorOffice: req.body["mario-office"],
+      address: req.body["mario-address"],
+      timeslot: req.body["mario-timeslot"]
     }
+
     res.render("confirm_appointment", appointmentObj);
     console.log(appointmentObj);
   });
