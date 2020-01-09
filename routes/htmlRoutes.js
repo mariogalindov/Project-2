@@ -193,11 +193,9 @@ module.exports = function (app) {
     var address = rawAddress.replace(/_/g, " ");
     var timestamp = parseInt(req.params.timeslot);
 
-
     var formatted = moment(timestamp).format('LLLL');
     console.log(formatted);
     var timeslot = formatted;
-
 
     console.log("Selected Doctor: " + selectedDoctorID);
     console.log("Selected Doctor: " + selectedDoctorName);
@@ -235,7 +233,6 @@ module.exports = function (app) {
       address: req.body["mario-address"],
       timeslot: req.body["mario-timeslot"]
     }
-
     res.render("confirm_appointment", appointmentObj);
     console.log(appointmentObj);
   });

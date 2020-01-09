@@ -207,5 +207,32 @@ module.exports = function (app) {
   });
 
 
-};
 
+  // POST route for saving a new APPOINTMENT (MEMO)
+  app.post("/api/create", function(req, res) {
+    console.log(req.body);
+    // create takes an argument of an object describing the item we want to
+    // insert into our table. In this case we just we pass in an object with a text
+    // and complete property (req.body)
+    db.appointment.create({
+      text: req.body.text,
+      complete: req.body.complete
+    }).then(function(result) {
+      // We have access to the new todo as an argument inside of the callback function
+      res.json(result);
+    });
+  });
+
+    // Get route for retrieving a single post (MEMO)
+    app.get("/api/appointment_confirmed/:id", function(req, res) {
+      db.appointment.findOne({
+        where: {
+          id: req.params.id
+        }
+      })
+        .then(function(result) {
+          res.json(result);
+        });
+    });
+
+};
