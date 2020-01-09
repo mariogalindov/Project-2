@@ -3,7 +3,19 @@
 <div class="row" id="availableTimesAndDates">
     {{#each this.jsonresp}}
         {{#each doctor}}
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+            <div 
+            {{#lengthOfArrayV2 ../doctor 1}}
+            class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"
+            {{/lengthOfArrayV2}}
+            {{#lengthOfArrayV2 ../doctor 2}}
+            class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-6"
+            {{/lengthOfArrayV2}}
+            {{#lengthOfArrayV2 ../doctor 3}}
+            class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"
+            {{else}}
+            class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"
+            {{/lengthOfArrayV2}}
+            >
                 <div class="card" style="height: 100%;">
                     <div class="card-header">
                         {{name}}
@@ -14,7 +26,7 @@
                                 {{#if photoLink}}
                                     <img src={{photoLink}} class="card-img" alt="..." style="height:100%">
                                 {{else}}
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSpimsX9cFYACIZXXmGAM9WMylG9K6bkXsWE9GXuiR-Ms3ClQ4f" class="card-img" alt="..." style="max-height:250px; max-width: 100px">
+                                    <img src="http://www.uman.edu.mx/umanweb/maestriasaludpublica/images/p-egreso.jpg" class="card-img" alt="..." style="max-height:250px; max-width: 100px">
                                 {{/if}}
                             </div>
                             <div class="col-8">
@@ -41,7 +53,7 @@
                         {{#each office}}
                             <div class={{#if @first}}"row officeRow"{{else}}"row officeRow d-none"{{/if}} id={{id}} data-doctor={{../id}}>
                                 <div class="col">
-                                    <div id={{datesCarousel id}} class="carousel slide" data-ride="carousel" data-interval="false">
+                                    <div id={{datesCarousel id}} class="carousel slide availabilityCarousel" data-ride="carousel" data-interval="false">
                                         <div class="carousel-inner">
                                             {{#each availability}}
                                                 <div class={{#if @first}}"carousel-item active text-center"{{else}}"carousel-item text-center"{{/if}}>
@@ -52,20 +64,20 @@
                                                     </span>
                                                     {{#each availability}}
                                                     {{#hasAppointment id 0}}
-                                                        <button type="button" class="btn btn-secondary mt-2 appt" style="width: 4rem" disabled>{{time timeslot}}</button>
+                                                        <button type="button" class="btn btn-secondary mt-2 appt" style="min-width: 20px" disabled>{{time timeslot}}</button>
                                                     {{else}}
-                                                        <button type="button" class="btn btn-primary mt-2 appt" style="width: 4rem" id={{timeId ../date timeslot}} data-doctor={{../../../id}} data-doctorName={{join ../../../name}} data-specialty={{join ../../../../name}} data-office={{../../id}}  data-address={{join ../../address}}>{{time timeslot}}</button>
+                                                        <button type="button" class="btn btn-primary mt-2 appt" style="min-width: 20px" id={{timeId ../date timeslot}} data-doctor={{../../../id}} data-doctorName={{join ../../../name}} data-specialty={{join ../../../../name}} data-office={{../../id}}  data-address={{join ../../address}}>{{time timeslot}}</button>
                                                     {{/hasAppointment}}
                                                     {{/each}}
                                                 </div>
                                             {{/each}}
                                         </div>
                                         {{#lengthOfArray availability 1}}
-                                        <a class="carousel-control-prev" href={{htDatesCarousel id}} role="button" data-slide="prev">
+                                        <a class="carousel-control-prev" id="carouContrPrev" href={{htDatesCarousel id}} role="button" data-slide="prev">
                                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                             <span class="sr-only">Previous</span>
                                         </a>
-                                        <a class="carousel-control-next" href={{htDatesCarousel id}} role="button" data-slide="next">
+                                        <a class="carousel-control-next" id="carouContrNext" href={{htDatesCarousel id}} role="button" data-slide="next">
                                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                             <span class="sr-only">Next</span>
                                         </a>
@@ -83,7 +95,7 @@
             <hr>
             <h1 style="font-family: Candara">OOPS!</h1>
             <h5>No doctors with availability were found with the options you selected!</h5>
-            <button type="submit" class="btn btn-primary mt-2" id="goBackToIndex" href="#/">Take me back</button>
+            <a type="submit" class="btn btn-primary" id="goBackToIndex" href="javascript:history.back()">Take me back</a>
             <hr>
         </div>
     {{/each}}
