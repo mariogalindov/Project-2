@@ -7,7 +7,7 @@
 var db = require("../models");
 var dottie = require("dottie");
 var moment = require('moment');
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
 var path = require("path");
 
 // Dependencies
@@ -236,4 +236,11 @@ module.exports = function (app) {
     res.render("confirm_appointment", appointmentObj);
     console.log(appointmentObj);
   });
+
+  // Confirm appointment 
+  // app.post("/appointment_confirmation/", function (req, res) {
+  //   console.log("HOLAAAAAAAAAAAAA");
+  //   res.render("appointment_confirmation", appointmentObj);
+  // });
 };
+

@@ -13,7 +13,7 @@
           <h5 class="card-title">My appointment information.</h5>
           <p class="card-text">We've got you covered. Medik will book your appointment as follows:</p>
           <div class="alert alert-success" role="alert">
-            <i class="fas fa-calendar-check"></i> Your visit is scheduled for <a href="#" class="alert-link">{{timeslot}}</a> <span id="muted-txt">Please arrive 10 minutes
+            <i class="fas fa-calendar-check"></i> Your visit is scheduled for <a href="#" class="alert-link" id="timeslot_1" data-value="{{timeslot}}">{{timeslot}}</a> <span id="muted-txt">Please arrive 10 minutes
               earlier.</span>
           </div>
           <nav aria-label="breadcrumb">
@@ -61,16 +61,15 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title"><i class="fas fa-user-md" id="muted-txt"></i> {{selectedDoctorName}}</h5>
+                  <h5 class="card-title"><i class="fas fa-user-md" id="name_1" data-value="{{selectedDoctorName}}"></i> {{selectedDoctorName}} - ID {{selectedDoctorID}}</h5>
                   <p class="card-text"><small class="text-muted">{{selectedDoctorSpecialty}}</small></p>
-                  <p class="card-text"><i class="far fa-hospital" id="muted-txt"></i> {{address}}</p>
+                  <p class="card-text"><i class="far fa-hospital" id="muted-txt"></i> {{address}} </p>
                 </div>
               </div>
             </div>
           </div>
           <br>
-          <a href="javascript:history.back()" class="btn btn-success btn-lg btn-block" data-toggle="modal"
-            data-target="#staticBackdrop">Confirm my appointment</a>
+          <button  class="btn btn-success btn-lg btn-block" id="confirm-btn" >Confirm my appointment</button>
           <small id="passwordHelpBlock" class="form-text text-muted text-center">
             Once confirmed, we will send you an email with the details.
           </small>
@@ -79,7 +78,7 @@
     </div>
   </div>
 
-  <!-- Confirmation Modal -->
+  {{!-- <!-- Confirmation Modal -->
   <div class="row">
     <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
       aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -103,6 +102,8 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> --}}
 
 </div>
+
+<script type="text/javascript" src="/js/appointment.js"></script>

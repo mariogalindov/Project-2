@@ -154,7 +154,7 @@ module.exports = function (app) {
       })
   });
 
-  app.post("/appointment_confirmation/", function(req, res) {
+  app.post("/appointment_confirmation", function(req, res) {
     // // client data
     // var name =  req.body.name;
     // var lastName = req.body.lastName;
@@ -171,7 +171,7 @@ module.exports = function (app) {
     // .then(newClient =>  {
     //   res.json(newClient);
     // })
-
+    
     //appointment data
     var user_id = 0 // de donde se saca esta info? 
     //se debería de generar en automatico cuando se cree el cliente (creo que si esta pero falta belongsTo en tabla appointments a la client_account), 
@@ -189,17 +189,21 @@ module.exports = function (app) {
     db.appointment.create({
       user_account_id: user_id,
       office_id: parseInt(office_id),
-      probable_start_time: appointmentTimestamp,
+      probable_start_time: req.body.timeslot,
       // actual_end_time: endTime,
       appointment_status_id: appointment_status,
       // appointment_taken_date: appointment_date,
       app_booking_channel_id: booking_channel
     })
     .then(newAppointment => {
-      console.log(newAppointment)
+      // console.log(newAppointment)
       // res.json(newAppointment);
+      console.log("then", newAppointment.id)
       res.render("appointment_confirmation", newAppointment)
+      // res.send(newAppointment)
 
+    }).catch(error => {
+console.log("ERROR 2")
     })
 
     // Cómo le hago para que se despliegue la info de la cita con la info del cliente/usuario? Eager Loading? 
@@ -208,31 +212,5 @@ module.exports = function (app) {
 
 
 
-  // POST route for saving a new APPOINTMENT (MEMO)
-  app.post("/api/create", function(req, res) {
-    console.log(req.body);
-    // create takes an argument of an object describing the item we want to
-    // insert into our table. In this case we just we pass in an object with a text
-    // and complete property (req.body)
-    db.appointment.create({
-      text: req.body.text,
-      complete: req.body.complete
-    }).then(function(result) {
-      // We have access to the new todo as an argument inside of the callback function
-      res.json(result);
-    });
-  });
-
-    // Get route for retrieving a single post (MEMO)
-    app.get("/api/appointment_confirmed/:id", function(req, res) {
-      db.appointment.findOne({
-        where: {
-          id: req.params.id
-        }
-      })
-        .then(function(result) {
-          res.json(result);
-        });
-    });
 
 };
