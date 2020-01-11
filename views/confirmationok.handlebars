@@ -1,0 +1,81 @@
+<!-- AddEvent script -->
+<script type="text/javascript" src="https://addevent.com/libs/atc/1.6.1/atc.min.js" async defer></script>
+
+<div class="container">
+    <div class="row">
+        <div class="jumbotron">
+            <h1 class="display-4">Your appointment has been Confirmed!</h1>
+            <p class="lead">{{appointment_status_id}}, your appointment with Doctor {{user_account_id}} is booked.</p>
+            <p>Please find the details below:</p>
+            </p>
+            <hr class="my-4">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Confirmed time: {{probable_start_time}}</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">{{user_account_id}} | {{app_booking_channel_id}}</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">{{office_id}} | <a
+                                href="https://www.google.com/maps/search/?api=1&query={{office_id}}"
+                                target="_blank">map</a></th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td scope="row" class="text-muted">Appointment ID: {{id}}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-muted"><small>We have also sent this confirmation to your
+                                inbox</small></th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ADD TO CALENDAR button code -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div title="Add to Calendar" class="addeventatc ">
+                        Add to Calendar
+                        <span class="start">01/23/2020 08:00 AM</span>
+                        <span class="end">01/23/2020 10:00 AM</span>
+                        <span class="timezone">America/Los_Angeles</span>
+                        <span class="title">Your Medik appointment</span>
+                        <span class="description">appointment confirmed with Doctor DOCTOR</span>
+                        <span class="location">Location of the event</span>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+
+            <a class="btn btn-link" href="/" role="button"><i class="fas fa-star-of-life"></i> Need to make more
+                appointments?</a>
+            <p>Have questions? <a href="#">contact us.</a></p>
+        </div>
+    </div>
+
+
+
+    </div>
+
+
+</div>

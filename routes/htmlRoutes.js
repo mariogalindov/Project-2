@@ -7,7 +7,7 @@
 var db = require("../models");
 var dottie = require("dottie");
 var moment = require('moment');
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
 var path = require("path");
 
 // Dependencies
@@ -193,11 +193,9 @@ module.exports = function (app) {
     var address = rawAddress.replace(/_/g, " ");
     var timestamp = parseInt(req.params.timeslot);
 
-
     var formatted = moment(timestamp).format('LLLL');
     console.log(formatted);
     var timeslot = formatted;
-
 
     console.log("Selected Doctor: " + selectedDoctorID);
     console.log("Selected Doctor: " + selectedDoctorName);
@@ -235,8 +233,14 @@ module.exports = function (app) {
       address: req.body["mario-address"],
       timeslot: req.body["mario-timeslot"]
     }
-
     res.render("confirm_appointment", appointmentObj);
     console.log(appointmentObj);
   });
+
+  // // Render 404 page from any unmatched routes
+  // app.get("*", function(req, res) {
+  //   res.render("404");
+  // })
+
 };
+
