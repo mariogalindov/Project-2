@@ -8,9 +8,15 @@ $(document).ready(function() {
 
     var drName = $("#name_1").attr("data-value");
     var timeslot = $("#timeslot_1").attr("data-value");
+    var patient = $("#patient_1").attr("data-value");
+    var specialty = $("#specialty_1").attr("data-value");
+    var address = $("#address_1").attr("data-value");
     var object = {
       drName: drName,
-      timeslot: timeslot
+      timeslot: timeslot,
+      patient: patient,
+      specialty: specialty,
+      address: address
     };
 
     console.log(drName);
@@ -25,7 +31,7 @@ $(document).ready(function() {
       data: object,
       success: function(result) {
         console.log("Success!!!");
-        $("body").html(result) ;
+        $("body").html(result);
       },
       error: function(result) {console.log("ERROR")}
     }).then(function(result) {console.log(result)});

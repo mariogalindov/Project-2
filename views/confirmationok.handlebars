@@ -5,13 +5,14 @@
     <div class="row">
         <div class="jumbotron">
             <h1 class="display-4">Your appointment has been Confirmed!</h1>
-            <p class="lead">Hi NAME, appointment confirmed with Doctor DOCTOR. Please find the details below:
+            <p class="lead">{{appointment_status_id}}, your appointment with Doctor {{user_account_id}} is booked.</p>
+            <p>Please find the details below:</p>
             </p>
             <hr class="my-4">
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">Confirmed time: TIMESLOT</th>
+                        <th scope="col">Confirmed time: {{probable_start_time}}</th>
                         <th scope="col"></th>
                         <th scope="col"></th>
                         <th scope="col"></th>
@@ -19,27 +20,22 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row">DOCTOR | SPECIALTY</th>
+                        <th scope="row">{{user_account_id}} | {{app_booking_channel_id}}</th>
                         <td></td>
                         <td></td>
                         <td></td>
                     </tr>
                     <tr>
-                        <th scope="row">Address | <a
-                                href="https://www.google.com/maps/search/?api=1&query=centurylink+field"
+                        <th scope="row">{{office_id}} | <a
+                                href="https://www.google.com/maps/search/?api=1&query={{office_id}}"
                                 target="_blank">map</a></th>
                         <td></td>
                         <td></td>
                         <td></td>
                     </tr>
+
                     <tr>
-                        <th scope="row"><a href="#">Need to make changes to this appointment?</a></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td scope="row" class="text-muted">Appointment ID: M65008-8</td>
+                        <td scope="row" class="text-muted">Appointment ID: {{id}}</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -71,7 +67,7 @@
             </div>
             <br><br>
 
-            <a class="btn btn-link" href="#" role="button"><i class="fas fa-star-of-life"></i> Need to make more
+            <a class="btn btn-link" href="/" role="button"><i class="fas fa-star-of-life"></i> Need to make more
                 appointments?</a>
             <p>Have questions? <a href="#">contact us.</a></p>
         </div>

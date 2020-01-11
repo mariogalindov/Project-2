@@ -23,8 +23,8 @@
             </ol>
           </nav>
           <ul class="list-group">
-            <li class="list-group-item"><i class="far fa-id-card" id="muted-txt"></i></i><span id="muted-txt"> Patient
-                name: </span>{{patientName}} {{patientLastName}}</li>
+            <li class="list-group-item"><i class="far fa-id-card" id="muted-txt"></i></i><span id="patient_1"  data-value="{{patientName}}"> Patient
+                name: </span > {{patientName}} </li>
             {{#if patientDOB}}
             <li class="list-group-item"><i class="fas fa-birthday-cake" id="muted-txt"></i><span id="muted-txt"> Date of
                 birth: </span> {{patientDOB}}</li>
@@ -62,8 +62,8 @@
               <div class="col-md-8">
                 <div class="card-body">
                   <h5 class="card-title"><i class="fas fa-user-md" id="name_1" data-value="{{selectedDoctorName}}"></i> {{selectedDoctorName}} - ID {{selectedDoctorID}}</h5>
-                  <p class="card-text"><small class="text-muted">{{selectedDoctorSpecialty}}</small></p>
-                  <p class="card-text"><i class="far fa-hospital" id="muted-txt"></i> {{address}} </p>
+                  <p class="card-text"><small class="text-muted" id="specialty_1" data-value="{{selectedDoctorSpecialty}}">{{selectedDoctorSpecialty}}</small></p>
+                  <p class="card-text" id="address_1" data-value="{{address}}"><i class="far fa-hospital" ></i> {{address}} </p>
                 </div>
               </div>
             </div>

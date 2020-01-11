@@ -173,41 +173,27 @@ module.exports = function (app) {
     // })
     
     //appointment data
-    var user_id = 0 // de donde se saca esta info? 
-    //se debería de generar en automatico cuando se cree el cliente (creo que si esta pero falta belongsTo en tabla appointments a la client_account), 
-    //se tiene que hacer una consulta de esa table después de generar cliente? Eager Loading?
-    var office_id = req.body.office_id // de donde va a salir? Viene de la ventana previa en donde se elige el horario, se manda en el post? 
-    var appointment_date = req.body.date
-    // var appointment_time = req.body.timeSlot // mismo caso, viene del valor del botón que detona el appointment.handlebars
-    var appointmentTimestamp = moment(req.body.timeslot).format("YYYY/MM/DD HH:mm:ss")
-    // var endTime = "123" // cómo se calcula? 
-    var appointment_status = 1 // cuando cambia el status? Que se genere siempre con 1?
-    // var appointment_date = "2020-01-30 10:00:00" // también me imagino que viene de search.handlebars
-    var booking_channel = 1 //siempre se maneja como 1 por ser a través de web app? 
+    var user_account_id = req.body.drName
+    var office_id = req.body.address; 
+    var appointment_date = req.body.date;
+    var appointmentTimestamp = moment(req.body.timeslot).format("YYYY/MM/DD HH:mm:ss");
+    var appointment_status = req.body.patient; 
+    var booking_channel = req.body.specialty;
     console.log(req.body);
     //appointment creation
     db.appointment.create({
-      user_account_id: user_id,
-      office_id: parseInt(office_id),
+      user_account_id: user_account_id,
+      office_id: office_id,
       probable_start_time: req.body.timeslot,
-      // actual_end_time: endTime,
       appointment_status_id: appointment_status,
-      // appointment_taken_date: appointment_date,
       app_booking_channel_id: booking_channel
     })
     .then(newAppointment => {
-      // console.log(newAppointment)
-      // res.json(newAppointment);
-      console.log("then", newAppointment.id)
-      res.render("appointment_confirmation", newAppointment)
-      // res.send(newAppointment)
-
+      res.render("confirmationok", newAppointment.dataValues)
+      console.log(newAppointment.dataValues)
     }).catch(error => {
 console.log("ERROR 2")
     })
-
-    // Cómo le hago para que se despliegue la info de la cita con la info del cliente/usuario? Eager Loading? 
-    //Creo que falta meterle el belongsTo a la tabla de appointments para hilarla con la de client_account
   });
 
 

@@ -237,10 +237,10 @@ module.exports = function (app) {
     console.log(appointmentObj);
   });
 
-  // Confirm appointment 
-  // app.post("/appointment_confirmation/", function (req, res) {
-  //   console.log("HOLAAAAAAAAAAAAA");
-  //   res.render("appointment_confirmation", appointmentObj);
-  // });
+  // // Render 404 page from any unmatched routes
+  // app.get("*", function(req, res) {
+  //   res.render("404");
+  // })
+
 };
 
