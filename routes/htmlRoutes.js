@@ -26,6 +26,11 @@ module.exports = function (app) {
     console.log("rendering views/index.handlebars from routes/htmlRoutes.js");
   });
 
+  // route for favicon
+  app.get("/favicon.ico", function(req, res) {
+    res.end();
+  });
+
   // Search speciality + city from HOME and render search results and availability
   function IsValidJSONString(str) {
     try {
