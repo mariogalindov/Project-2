@@ -11,6 +11,7 @@ $(document).ready(function() {
     var patient = $("#patient_1").attr("data-value");
     var specialty = $("#specialty_1").attr("data-value");
     var address = $("#address_1").attr("data-value");
+    
     var object = {
       drName: drName,
       timeslot: timeslot,
@@ -20,7 +21,7 @@ $(document).ready(function() {
     };
 
     console.log(drName);
-    console.log(timeslot);
+    console.log("timeslot: " + timeslot);
     console.log(object);
 
     $.ajax({

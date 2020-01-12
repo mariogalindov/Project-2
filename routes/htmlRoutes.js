@@ -196,19 +196,25 @@ module.exports = function (app) {
     var selectedDoctorOffice = req.params.office;
     var rawAddress = req.params.address;
     var address = rawAddress.replace(/_/g, " ");
-    var timestamp = parseInt(req.params.timeslot);
+    var timeString = req.params.timeslot;
 
-    var formatted = moment(timestamp).format('LLLL');
-    console.log(formatted);
-    var timeslot = formatted;
+    // parsing timeString into moment.js readable format
+    var day = timeString.substring(0, 2);
+    var month = timeString.substring(2, 4);
+    var year = timeString.substring(4, 8);
+    var hour = timeString.substring(8, 10);
+    var min = timeString.substring(10, 12);
+
+    var date = month += day += year += hour += min;
+    var calendarDate = moment(date, "MM-DD-YYYY, hh:mm").format("LLLL");
 
     console.log("Selected Doctor: " + selectedDoctorID);
     console.log("Selected Doctor: " + selectedDoctorName);
     console.log("Selected Office: " + selectedDoctorSpecialty);
     console.log("Selected Office: " + selectedDoctorOffice);
     console.log("Selected Office: " + address);
-    console.log("Timeslot: " + timeslot);
-
+    console.log("Selected time: " + calendarDate);
+    
     // appointment page injection with selected appointment data
     res.render("appointment", {
       selectedDoctorID: selectedDoctorID,
@@ -216,7 +222,7 @@ module.exports = function (app) {
       selectedDoctorSpecialty: selectedDoctorSpecialty,
       selectedDoctorOffice: selectedDoctorOffice,
       address: address,
-      timeslot: timeslot
+      timeslot: calendarDate
     });
     console.log("rendering views/appointment.handlebars from routes/htmlRoutes.js");
   });
@@ -246,6 +252,5 @@ module.exports = function (app) {
   // app.get("*", function(req, res) {
   //   res.render("404");
   // })
-
 };
 

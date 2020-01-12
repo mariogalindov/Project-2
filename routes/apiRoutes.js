@@ -173,20 +173,20 @@ module.exports = function (app) {
     // })
     
     //appointment data
-    var user_account_id = req.body.drName
+    var user_account_id = req.body.drName;
     var office_id = req.body.address; 
-    var appointment_date = req.body.date;
-    var appointmentTimestamp = moment(req.body.timeslot).format("YYYY/MM/DD HH:mm:ss");
+    // var appointment_date = req.body.date;
+    var appointmentDate = req.body.timeslot;
     var appointment_status = req.body.patient; 
     var booking_channel = req.body.specialty;
     console.log(req.body);
     //appointment creation
     db.appointment.create({
-      user_account_id: user_account_id,
-      office_id: office_id,
-      probable_start_time: req.body.timeslot,
-      appointment_status_id: appointment_status,
-      app_booking_channel_id: booking_channel
+      user_account_id: user_account_id, // doctor name
+      office_id: office_id, // address
+      probable_start_time: appointmentDate, // date
+      appointment_status_id: appointment_status, //patient name
+      app_booking_channel_id: booking_channel //specialty
     })
     .then(newAppointment => {
       res.render("confirmationok", newAppointment.dataValues)
