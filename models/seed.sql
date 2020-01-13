@@ -16,15 +16,15 @@ VALUES
 INSERT INTO doctor (first_name, last_name, professional_statement, practicing_from, createdAt, updatedAt)
 VALUES
 ('Nick', 'Lovell', 'I am the best doctor!', '2009-12-19', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
-('Osama', 'Schmitt', 'I am the best doctor!', '2000-10-11', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
+('Jon David', 'Schmitt', 'I am the best doctor!', '2000-10-11', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
 ('Marie', 'Medrano', 'I am the best doctor!', '1999-07-22', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
 ('Lee', 'Devlin', 'I am the best doctor!', '1995-05-14', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
 ('Bruce', 'Cooke', 'I am the best doctor!', '2015-01-05', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
-('Carolina', 'Espinosa', 'I am the best doctor!', '2019-12-19', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
-('Marco', 'Jiménez', 'I am the best doctor!', '2000-11-04', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
-('Raúl', 'Orozco', 'I am the best doctor!', '1989-04-12', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
-('Leonardo', 'Dicarpio', 'I am the best doctor!', '1985-07-19', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
-('Armando', 'Sosa', 'I am the best doctor!', '2015-07-04', '2019-12-19 18:30:00', '2019-12-19 18:30:00');
+('Anne', 'Sarnoff', 'I am the best doctor!', '2019-12-19', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
+('Bruce B.', 'Lerman, M.D.', 'I am the best doctor!', '2000-11-04', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
+('Michel A.', 'Cohen', 'I am the best doctor!', '1989-04-12', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
+('Erin M.', 'Dalton', 'I am the best doctor!', '1985-07-19', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
+('Deena', 'Blanchard', 'I am the best doctor!', '2015-07-04', '2019-12-19 18:30:00', '2019-12-19 18:30:00');
 
 
 INSERT INTO doctor_specialization (doctor_id, specialization_id, createdAt, updatedAt)
@@ -48,26 +48,26 @@ VALUES
 
 INSERT INTO hospital_affiliation (doctor_id, hospital_name, city, country, createdAt, updatedAt)
 VALUES
-('1', 'Mayo Clinic','Rochester', 'USA', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
-('2', 'Centro Médico ABC','CDMX', 'Mexico', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
-('3', 'Charité','Berlin', 'germany', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
-('4', 'Singapore General Hospital', 'Singapore', 'Singapore', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
-('5', 'Johns Hopkins Hospital', 'Baltimore', 'USA', '2019-12-19 18:30:00', '2019-12-19 18:30:00');
+('1', 'NewYork-Presbyterian. Lower Manhattan Hospital','Rochester', 'USA', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
+('2', 'Bellevue Hospital Center','New York', 'USA', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
+('3', 'NewYork-Presbyterian Queens','Flushing', 'USA', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
+('4', 'Gracie Square Hospital', 'New York', 'USA', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
+('5', 'NYC Health + Hospitals/Harlem', 'New York', 'USA', '2019-12-19 18:30:00', '2019-12-19 18:30:00');
 
 
 INSERT INTO office (doctor_id, hospital_affiliation_id, time_slot_per_client_in_min, first_consultation_fee
 , followup_consultation_fee, street_address, city, state, country, zip, createdAt, updatedAt)
 VALUES
-('1', '1', '15', '50', '50', 'Suite 2001','Rochester', 'Minnesota', 'USA', '55902', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
-('2', '2', '30', '75', '70', 'A-2002','CDMX', 'CDMX', 'Mexico', '05126', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
-('3', '3', '45', '120', '100', 'Office # 101', 'Berlin', 'Berlin', 'Germany', '05349', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
-('4', '4', '30', '180', '150', 'O-101', 'Singapore', 'Singapore', 'Singapore', '169608', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
-('5', '5', '60', '250', '200', 'AS-701', 'Baltimore', 'Maryland', 'USA', '21287', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
-('6', '1', '15', '50', '50', 'Suite 2002','Rochester', 'Minnesota', 'USA', '55902', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
-('7', '2', '30', '75', '70', 'A-2003','CDMX', 'CDMX', 'Mexico', '05126', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
-('8', '3', '45', '120', '100', 'Office # 401', 'Berlin', 'Berlin', 'Germany', '05349', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
-('9', '4', '30', '180', '150', 'O-501', 'Singapore', 'Singapore', 'Singapore', '169608', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
-('10', '5', '60', '250', '200', 'AS-901', 'Baltimore', 'Maryland', 'USA', '21287', '2019-12-19 18:30:00', '2019-12-19 18:30:00');
+('1', '1', '15', '50', '50', '462 1st Avenue','New York', 'NY', 'USA', '10016', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
+('2', '2', '30', '75', '70', '170 William St','New York', 'New York', 'USA', '10038', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
+('3', '3', '45', '120', '100', 'NYU Langone Health - Tisch Hospital 550 First Avenue', 'New York', 'NY', 'USA', '10016', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
+('4', '4', '30', '180', '150', '56-45 Main St', 'Flushing', 'NY', 'USA', '11355', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
+('5', '5', '60', '250', '200', '420 E 76th St', 'New York', 'NY', 'USA', '21287', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
+('6', '1', '15', '50', '50', '506 Lenox Ave','New York', 'NY', 'USA', '10037', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
+('7', '2', '30', '75', '70', '4424 Turkey Pen Road','New York', 'New York', 'USA', '10048', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
+('8', '3', '45', '120', '100', '505 East 70th Street, 5th Floor (HT-5)', 'New York', 'New York', 'USA', '10021', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
+('9', '4', '30', '180', '150', '2870  Southern Street', 'New York', 'New York', 'USA', '10011', '2019-12-19 18:30:00', '2019-12-19 18:30:00'),
+('10', '5', '60', '250', '200', '333 E 38th St', 'New York', 'NY', 'USA', '10016', '2019-12-19 18:30:00', '2019-12-19 18:30:00');
 
 
 INSERT INTO office_doctor_availability (office_id, day_of_week, start_time, end_time
